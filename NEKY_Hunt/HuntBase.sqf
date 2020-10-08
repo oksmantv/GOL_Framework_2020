@@ -1,33 +1,47 @@
 
 
-//////// Created by Oksman ////////////////////////////////////////////////////////////////////////////////////
-///
-///		Parameters:
-///     Object - If this object is destroyed the camp will no longer spawn attacks, use something that can be destroyed such as trucks, tents, buildings etc.
-///
-///		SpawnObject - Set down a Helipad (Invisible) and face the direction you want the vehicle/group to spawn in
-///
-///		Trigger - Set up a trigger used to define the hunting space for these reinforcements, set it to Any Players and repeatable for best effect.
-///
-///		Number of Waves - Select number of waves using a SCALAR value (0-999)
-///
-///		Respawn Delay - Select in seconds how long between spawns and respawns of waves
-///
-///		Side - The side of the faction you wanted spawned
-///
-///		Soldiers or Classname - SCALAR or ARRAY - If you select numbers there will be X amount of soldiers in 1 group. If you input a string Example: "CUP_O_BTR40_MG_TKM" you will get this vehicle crewed by the faction the vehicle is ///     based on. If you want to have a randomly selected vehicle you can input an Array with strings, example: ["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"]
-///
-///		Refresh Rate - Time in seconds you want the script to refresh their knowledge of Players inside the hunt zone, quickens the response with shorter refresh, but increases slightly in the performance cost.
-///
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//
-//		[Object, Spawn, Trigger, 10,300,EAST,6,30] spawn NEKY_Hunt_HuntBase;
-//		[Object, Spawn, Trigger, 10,450,EAST,"CUP_O_BTR40_MG_TKM",30] spawn NEKY_Hunt_HuntBase;
-//		[Object, Spawn, Trigger, 10,450,EAST,["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"],30] spawn NEKY_Hunt_HuntBase;
-//
-//		Best Activated in SpawnList for resource saving.
-//
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////
+// Created by Oksman
+/*
+		Reminder this code needs to be precompiled and initiated using the same method all Neko-Scripts use, the following needs to be inside an init file (Create your own "init.sqf" in mission directory):
+		[] execVM "Scripts\NEKY_Hunt\Init.sqf";
+
+		[Base Object, SpawnObject, Trigger, Number Of Waves,Respawn Delay,Side,Number of Soldiers / Vehicle Classname,Refresh Rate] spawn NEKY_Hunt_HuntBase;
+
+		Script Parameters:
+    	Base Object - If this object is destroyed the camp will no longer spawn attacks, use something that can be destroyed such as trucks, tents, buildings etc.
+		SpawnObject - Set down a Helipad (Invisible) and face the direction you want the vehicle/group to spawn in
+		Trigger - Set up a trigger used to define the hunting space for these reinforcements, set it to Any Players and repeatable for best effect.
+		Number of Waves - Select number of waves using a SCALAR value (0-999)
+		Respawn Delay - Select in seconds how long between spawns and respawns of waves
+		Side - The side of the faction you wanted spawned
+		Soldiers or Classname - SCALAR or ARRAY - If you select numbers there will be X amount of soldiers in 1 group. If you input a string Example: "CUP_O_BTR40_MG_TKM" you will get this vehicle crewed by the faction the vehicle is      based on. If you want to have a randomly selected vehicle you can input an Array with strings, example: ["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"]
+		Refresh Rate - Time in seconds you want the script to refresh their knowledge of Players inside the hunt zone, quickens the response with shorter refresh, but increases slightly in the performance cost.
+
+		Examples on code:
+		[Object_1, Spawn_1, Trigger_1, 10,300,EAST,6,30] spawn NEKY_Hunt_HuntBase;
+		[Object_1, Spawn_1, Trigger_1, 10,450,EAST,"CUP_O_BTR40_MG_TKM",30] spawn NEKY_Hunt_HuntBase;
+		[Object_1, Spawn_1, Trigger_1, 10,450,EAST,["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"],30] spawn NEKY_Hunt_HuntBase;
+
+		Step-by-Step Guide:
+		You need two objects, you need a base object and a spawn object. Place down a destructible object and name it 'Object_1'
+		(When this object is destroyed, the "base" is destroyed thus it will not spawn more units)
+
+		Next create a spawn object and name it 'Spawn_1', this could be any object but I suggest using a tiny object such as 'Box of matches'. This is the object the units/vehicle will use to spawn on top of.
+		(You can also use a invisible helipad but this will make AI helicopters land on these spawns in some occasions, so not recommended.)
+
+		You now need a Trigger, create a trigger and name it Trigger_1. Set the activation to "Any Players" and set it to "Repeatable". All this is chosen in the trigger properties (Double-click the trigger).
+		(This is now the trigger area the enemy spawned units will hunt inside, this means if players are detected within this trigger, they will start spawning units and start hunting. When they leave the AI will cease hunting and cease spawning.)
+
+		You now have all the necessary editor placed objects to use the code. You have a base object, spawn object and a trigger. Now open your spawnList.sqf and paste the following:
+		[Object_1, Spawn_1, Trigger_1, 10,300,EAST,6,30] spawn NEKY_Hunt_HuntBase;
+
+		The final properties in the bracket above is:
+		Number of Waves, Respawn Delay, Side, Soldiers and Refresh Rate.
+		10				 300			EAST  6			   30
+
+		These are the properties you have to change to match whatever you need. Now when you activate your spawnList case through the standard triggers, your base will initiate. To have them spawn in, you need to be detected by the enemy side and reach a knowsAbout value above 3.5. Get into CQB with the enemy and this should activate the hunting bases.
+
+*/
 
 if (!isServer) exitWith {false};	// Ensures only server
 
@@ -99,7 +113,7 @@ while {alive _Base && _Waves > 0} do
 					};
 				};
 
-				///SystemChat str [_Skill,_SkillVariables,_Group];
+				SystemChat str [_Skill,_SkillVariables,_Group];
 				[_Group, _SkillVariables, _Skill] Spawn NEKY_Hunt_SetSkill;
 				_Group AllowFleeing 0;
 
@@ -131,7 +145,7 @@ while {alive _Base && _Waves > 0} do
 					_CargoSeats = ([TypeOf _Vehicle,true] call BIS_fnc_crewCount) - (["TypeOf _Vehicle",false] call BIS_fnc_crewCount);
 					if(_CargoSeats > _MaxCargoSeats) then { _CargoSeats = _MaxCargoSeats };
 
-						/// Create Leader
+						 Create Leader
 						_Unit = _Group CreateUnit [(_Units call BIS_FNC_selectRandom), [0,0,50], [], 0, "NONE"];
 						_Unit setRank "SERGEANT";
 						_Unit MoveInCargo _Vehicle;
@@ -145,7 +159,7 @@ while {alive _Base && _Waves > 0} do
 						_Unit MoveInCargo _Vehicle;
 					};
 
-					///SystemChat str [_Skill,_SkillVariables,_Group];
+					SystemChat str [_Skill,_SkillVariables,_Group];
 					[_Group, _SkillVariables, _Skill] Spawn NEKY_Hunt_SetSkill;
 					_Group AllowFleeing 0;
 
