@@ -9,7 +9,7 @@
 
 		Script Parameters:
     	Base Object - If this object is destroyed the camp will no longer spawn attacks, use something that can be destroyed such as trucks, tents, buildings etc.
-		SpawnObject - Set down a Helipad (Invisible) and face the direction you want the vehicle/group to spawn in
+		SpawnObject - Set down a small object (box of matches) and face the direction you want the vehicle/group to spawn in
 		Trigger - Set up a trigger used to define the hunting space for these reinforcements, set it to Any Players and repeatable for best effect.
 		Number of Waves - Select number of waves using a SCALAR value (0-999)
 		Respawn Delay - Select in seconds how long between spawns and respawns of waves
@@ -46,8 +46,6 @@
 if (!isServer) exitWith {false};	// Ensures only server
 
 Params["_Base","_SpawnPos","_HuntZone","_Waves","_RespawnDelay","_Side","_Soldiers","_RefreshRate"];
-
-
 
 
 Params
@@ -91,7 +89,7 @@ while {alive _Base && _Waves > 0} do
 		SystemChat str [({isTouchingGround (vehicle _X) && (isPlayer _X) && [objNull, "VIEW"] checkVisibility [eyePos _X, getPosASL _EyeCheck] >= 0.6} count AllPlayers < 1),({isTouchingGround (vehicle _X) && (isPlayer _X)} count list _Trigger < 1)];
 
 		if( {isTouchingGround (vehicle _X) && (isPlayer _X) && [objNull, "VIEW"] checkVisibility [eyePos _X, getPosASL _EyeCheck] >= 0.6} count AllPlayers > 0 || {isTouchingGround (vehicle _X) && (isPlayer _X)} count list _Trigger > 0 ) then {
-			SystemChat "Spawn in View or Inside Safe Trigger..";
+			///SystemChat "Spawn in View or Inside Safe Trigger..";
 		}
 		else
 		{
@@ -119,7 +117,7 @@ while {alive _Base && _Waves > 0} do
 
 				sleep 1;
 				[_Group, nil, _HuntZone, 0, 30, 0, {}] Spawn NEKY_Hunt_Run;
-				SystemChat "Infantry Spawned...";
+				///SystemChat "Infantry Spawned...";
 
 			};
 
@@ -145,7 +143,7 @@ while {alive _Base && _Waves > 0} do
 					_CargoSeats = ([TypeOf _Vehicle,true] call BIS_fnc_crewCount) - (["TypeOf _Vehicle",false] call BIS_fnc_crewCount);
 					if(_CargoSeats > _MaxCargoSeats) then { _CargoSeats = _MaxCargoSeats };
 
-						 Create Leader
+						 ///Create Leader
 						_Unit = _Group CreateUnit [(_Units call BIS_FNC_selectRandom), [0,0,50], [], 0, "NONE"];
 						_Unit setRank "SERGEANT";
 						_Unit MoveInCargo _Vehicle;
@@ -159,13 +157,13 @@ while {alive _Base && _Waves > 0} do
 						_Unit MoveInCargo _Vehicle;
 					};
 
-					SystemChat str [_Skill,_SkillVariables,_Group];
+					///SystemChat str [_Skill,_SkillVariables,_Group];
 					[_Group, _SkillVariables, _Skill] Spawn NEKY_Hunt_SetSkill;
 					_Group AllowFleeing 0;
 
 				};
 
-				SystemChat "Vehicle Spawned...";
+				///SystemChat "Vehicle Spawned...";
 				sleep 1;
 				[Group (Driver _Vehicle), nil, _HuntZone, 0, 30, 0, {}] Spawn NEKY_Hunt_Run;
 
