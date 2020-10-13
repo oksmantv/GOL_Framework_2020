@@ -1,6 +1,6 @@
 
-///// _null = [ArtyName,TargetObject,WeaponClassname,RateoFire,ReloadTime,Angle] spawn OKS_ArtyFire;
-//// _null = [west,this,target_1,"CUP_Vcannon_D30_veh",1,90,2000] spawn OKS_ArtyFire;
+///// _null = [ArtyName,TargetObject,WeaponClassname,RateoFire,ReloadTime,Angle] execVM "artyFire.sqf";
+//// _null = [west,this,target_1,"CUP_Vcannon_D30_veh",1,90,2000] execVM "Scripts\OKS_Ambience\artyFire.sqf";
 //// RHS D-30: RHS_Weap_d30
 //// RHS BM-21: rhs_weap_bm21
 //// CUP D-30: CUP_Vcannon_D30_veh
@@ -24,10 +24,14 @@ if (isServer) then
 	Debug = 0;
 	if (Debug == 1) then {SystemChat "Start"};
 
-		params["_side","_arty","_target","_weapon","_rof","_time","_angle"];
-		private ["_gunner"];
-
+		_side = _this select 0;
+		_arty = _this select 1;
 		_gunner = gunner _arty;
+		_target = _this select 2;
+		_weapon = _this select 3;
+		_rof = _this select 4;
+		_time = _this select 5;
+		_angle = _this select 6;
 
 		//// Reset Ammo
 		_arty setVehicleAmmo 0;
@@ -36,44 +40,52 @@ if (isServer) then
 		if (!alive gunner _arty) then {
 			if (Debug == 1) then {SystemChat format ["%1",_side]};
 			/// Initiation
-			switch (_side) do
+			switch {_side} do
 			{
-				case blufor:
-				{
+				case west: {
+
 					if (Debug == 1) then {SystemChat "Selected West"};
 					_gunner_group = createGroup west;
 					_gunner = _gunner_group createUnit ["B_Soldier_F",[0,0,10], [], 0, "FORM"];
+					_gunner moveInGunner _arty;
+					_gunner setBehaviour "CARELESS";
+					_gunner setCombatMode "BLUE";
 
 				};
 
-				case opfor:
-				{
+				case east: {
+
 					if (Debug == 1) then {SystemChat "Selected East"};
 					_gunner_group = createGroup east;
 					_gunner = _gunner_group createUnit ["O_Soldier_F",[0,0,10], [], 0, "FORM"];
+					_gunner moveInGunner _arty;
+					_gunner setBehaviour "CARELESS";
+					_gunner setCombatMode "BLUE";
 				};
 
-				case independent:
-				{
-					if (Debug == 1) then {SystemChat "Selected Independent"};
-					_gunner_group = createGroup independent;
-					_gunner = _gunner_group createUnit ["I_Soldier_F",[0,0,10], [], 0, "FORM"];
-				};
+			case independent: {
 
-				default
-				{
-					if (Debug == 1) then {SystemChat "Selected Default"};
-					_gunner_group = createGroup east;
-					_gunner = _gunner_group createUnit ["O_Soldier_F",[0,0,10], [], 0, "FORM"];
+				if (Debug == 1) then {SystemChat "Selected Independent"};
+				_gunner_group = createGroup independent;
+				_gunner = _gunner_group createUnit ["I_Soldier_F",[0,0,10], [], 0, "FORM"];
+				_gunner moveInGunner _arty;
+				_gunner setBehaviour "CARELESS";
+				_gunner setCombatMode "BLUE";
+				_gunner disableAI "ALL";
 
-				};
 			};
-		};
 
-	_gunner moveInGunner _arty;
-	_gunner setBehaviour "CARELESS";
-	_gunner setCombatMode "BLUE";
-	_gunner setVariable ["oks_disable_hunt",true];
+			default {
+
+				if (Debug == 1) then {SystemChat "Selected Default"};
+				_gunner_group = createGroup independent;
+				_gunner = _gunner_group createUnit ["I_Soldier_F",[0,0,10], [], 0, "FORM"];
+				_gunner moveInGunner _arty;
+				_gunner setVariable ["oks_disable_hunt",true];
+
+			};
+	};
+};
 
 	if (Debug == 1) then {SystemChat "Starting Watch and Interval"};
 

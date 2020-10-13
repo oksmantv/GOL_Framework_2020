@@ -3,7 +3,13 @@
 /// [_side,_arty,_target,_reloadTime] spawn OKS_ScudLaunch;
 /// [east,scud_1,target_1,600] spawn OKS_ScudLaunch;
 
+
+
 if(!isServer) exitWith {};
+
+params["_side","_arty","_target","_reloadTime"];
+private ["_gunner","_OKS_CHECK_TRAVEL"];
+
 
 	OKS_CHECK_TRAVEL = {
 
@@ -15,12 +21,7 @@ if(!isServer) exitWith {};
 	};
 
 
-
-		params["_side","_arty","_target","_reloadTime"];
-		private ["_gunner"];
-		_gunner = gunner _arty;
-
-		if (!alive gunner _arty) then {
+		if (isNull (gunner _arty)) then {
 
 			switch (_side) do
 			{
@@ -59,13 +60,13 @@ if(!isServer) exitWith {};
 
 	sleep (30 + (random 30));
 
-while {alive _Arty} do {
+	while {alive _arty} do {
 
-	_arty setVehicleAmmo 1; sleep 1;
-	[_arty,1] spawn rhs_fnc_ss21_AI_prepare;
-	sleep (60 + (random 30));
-	[_arty, getPos _target]spawn rhs_fnc_ss21_AI_launch;
-	sleep _reloadTime;
+		_arty setVehicleAmmo 1; sleep 1;
+		[_arty,1] spawn rhs_fnc_ss21_AI_prepare;
+		sleep (60 + (random 30));
+		[_arty, getPos _target]spawn rhs_fnc_ss21_AI_launch;
+		sleep _reloadTime;
 
-};
+	};
 
