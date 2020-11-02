@@ -4,8 +4,6 @@
 //
 //	Made by Oksman
 
-if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
-
 // Functions
 OKS_TASK = compile preprocessFileLineNumbers "Scripts\OKS_TASK\OKS_Task.sqf";
 OKS_TASKSTATE = compile preprocessFileLineNumbers "Scripts\OKS_TASK\OKS_TaskState.sqf";

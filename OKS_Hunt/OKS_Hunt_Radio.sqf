@@ -10,23 +10,22 @@ OKS_Loop_Radio = {
 
 	while {!(isNull _Corpse) && OKS_Detected} do
 	{
+		RandomNumber = Random 1;
+		if( {_Corpse distance _X < 30} count AllPlayers > 0 && (RandomNumber > 0.5) ) then {
+			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio1.ogg", _Corpse, false, getPosASL _Corpse, 2.5, 1, 14];
+			sleep 30+(Random 90);
 
-		if( {_Corpse distance _X < 30} count AllPlayers > 0 ) then {
-			SystemChat "Playing Radios";
-			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio1.ogg", _Corpse, false, getPosASL _Corpse, 3, 1, 17];
-			sleep 30+(Random 30);
+			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio2.ogg", _Corpse, false, getPosASL _Corpse, 2.5, 1, 14];
+			sleep 30+(Random 90);
 
-			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio2.ogg", _Corpse, false, getPosASL _Corpse, 3, 1, 17];
-			sleep 30+(Random 30);
+			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio3.ogg", _Corpse, false, getPosASL _Corpse, 2.5, 1, 14];
+			sleep 30+(Random 90);
 
-			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio3.ogg", _Corpse, false, getPosASL _Corpse, 3, 1, 17];
-			sleep 30+(Random 30);
+			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio4.ogg", _Corpse, false, getPosASL _Corpse, 2.5, 1, 14];
+			sleep 30+(Random 90);
 
-			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio4.ogg", _Corpse, false, getPosASL _Corpse, 3, 1, 17];
-			sleep 30+(Random 30);
-
-			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio5.ogg", _Corpse, false, getPosASL _Corpse, 3, 1, 17];
-			sleep 60;
+			playSound3D [MISSION_ROOT + "Scripts\OKS_HUNT\Radio\Radio5.ogg", _Corpse, false, getPosASL _Corpse, 2.5, 1, 14];
+			sleep 90;
 		};
 
 		sleep 20;

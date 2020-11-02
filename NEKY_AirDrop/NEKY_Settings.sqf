@@ -9,9 +9,9 @@ _ChuteHeight = 60;				// The height of where AI will start opening their parachu
 _WPDistance = 150;				// The size of the area to search around when reaching their final SAD waypoint. For units.
 
 _AirbaseRespawnTimer = 900; 	// Timer until allowed to respawn another wave of reinforcements. How its calculated: ThisTime + (random ThisTime) so 300+(randomly between 1-300).
-_AirbaseRandomDistanceLZ = 400; // Distance from player the helicopter will choose HLS. Calculated like Timer, 150 meters + (Randomly 1 to 150m) - Max 300, minimum 151 meters.
+_AirbaseRandomDistanceLZ = 200; // Distance from player the helicopter will choose HLS. Calculated like Timer, 150 meters + (Randomly 1 to 150m) - Max 300, minimum 151 meters.
 _AirbaseRefreshRate = 30;		// Refresh timer, checks every X seconds if the player is within the attack zone and if they are detected.
-_AirbaseRespawnCount = 3;		// How many waves of reinforcements will be sent from this base if allowed?
+_AirbaseRespawnCount = 10;		// How many waves of reinforcements will be sent from this base if allowed?
 _EgressPos = [0,0,0];
 
 

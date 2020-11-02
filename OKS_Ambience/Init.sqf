@@ -3,8 +3,8 @@
 //	This initializes all the functions for OKS Ambience.
 //
 //	Made by Oksman
-
 if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
+
 
 // Functions
 OKS_Ambient_Settings = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\Settings.sqf";

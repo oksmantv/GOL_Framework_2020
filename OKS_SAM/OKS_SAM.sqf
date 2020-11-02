@@ -1,6 +1,7 @@
 // How to use
 // [SAMLAUNCHER,RATEOFFIRE,AMMO,RELOADRATE] spawn OKS_SAM;
 // [this,20,4,30] spawn OKS_SAM;
+// Put this in the the missions init.sqf after 10 second delay
 
 _SAM = _this select 0;
 _RateOfFire = _this select 1;

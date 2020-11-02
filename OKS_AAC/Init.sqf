@@ -4,8 +4,6 @@
 //
 //	Made by Oksman
 
-if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
-
 // Functions
 OKS_DAP_Config = compile preprocessFileLineNumbers "Scripts\OKS_AAC\OKS_DAP_Config.sqf";
 OKS_Interact_Apply = compile preprocessFileLineNumbers "Scripts\OKS_AAC\OKS_Interact_Apply.sqf";
@@ -13,6 +11,6 @@ OKS_Interact_Copilot = compile preprocessFileLineNumbers "Scripts\OKS_AAC\OKS_In
 OKS_Interact_DoorGunner = compile preprocessFileLineNumbers "Scripts\OKS_AAC\OKS_Interact_DoorGunner.sqf";
 OKS_Interact_Pilot = compile preprocessFileLineNumbers "Scripts\OKS_AAC\OKS_Interact_Pilot.sqf";
 
-sleep 1;
+sleep 5;
 
 [] spawn OKS_DAP_Config;

@@ -97,8 +97,9 @@ if (isServer) then
 			_arty addEventHandler ["Fired",{ [(_this select 6),(_this select 0)] Spawn OKS_CHECK_TRAVEL;}];
 		};
 
-		_arty fireAtTarget [_target];
-
+		if(Alive gunner _arty) then {
+			_arty fireAtTarget [_target];
+		};
 
 		///// If out of ammo, reload
 		if (_arty ammo _weapon < 1) then

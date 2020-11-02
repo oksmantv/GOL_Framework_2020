@@ -34,13 +34,13 @@ OKS_AIR_CONFIG = {
 
 				//// Add Weapon
 				if (Count (_vehicle weaponsTurret [0]) < 1) then {
-					_vehicle addWeaponTurret ["vtx_wpn_m134",[0]];
-					_vehicle addMagazineTurret ["vtx_2000Rnd_65x39_Belt_Tracer_Red",[0]];
+				_vehicle addWeaponTurret ["CUP_Vacannon_Yakb_veh",[0]];
+				_vehicle addMagazineTurret ["CUP_1470Rnd_TE1_127x108_YakB_AP_M",[0]];
 				};
 
 				if (Count (_vehicle weaponsTurret [1]) < 1) then {
-					_vehicle addWeaponTurret ["vtx_wpn_m134_2nd",[1]];
-					_vehicle addMagazineTurret ["vtx_2000Rnd_65x39_Belt_Tracer_Red",[1]];
+				_vehicle addWeaponTurret ["CUP_Vacannon_Yakb_veh",[1]];
+				_vehicle addMagazineTurret ["CUP_1470Rnd_TE1_127x108_YakB_AP_M",[1]];
 				};
 			};
 			if (["UH60",TypeOf _Vehicle] call BIS_fnc_inString || ["MH60",TypeOf _Vehicle] call BIS_fnc_inString || ["RHS_UH1Y",TypeOf _Vehicle] call BIS_fnc_inString || ["RHS_CH_47",TypeOf _Vehicle] call BIS_fnc_inString) then {
@@ -56,13 +56,13 @@ OKS_AIR_CONFIG = {
 
 				//// Add Weapon
 				if (Count (_vehicle weaponsTurret [1]) < 1) then {
-					_vehicle addWeaponTurret ["vtx_wpn_m134",[1]];
-					_vehicle addMagazineTurret ["vtx_2000Rnd_65x39_Belt_Tracer_Red",[1]];
+				_vehicle addWeaponTurret ["CUP_Vacannon_Yakb_veh",[1]];
+				_vehicle addMagazineTurret ["CUP_1470Rnd_TE1_127x108_YakB_AP_M",[1]];
 				};
 
 				if (Count (_vehicle weaponsTurret [2]) < 1) then {
-					_vehicle addWeaponTurret ["vtx_wpn_m134_2nd",[2]];
-					_vehicle addMagazineTurret ["vtx_2000Rnd_65x39_Belt_Tracer_Red",[2]];
+				_vehicle addWeaponTurret ["CUP_Vacannon_Yakb_veh",[2]];
+				_vehicle addMagazineTurret ["CUP_1470Rnd_TE1_127x108_YakB_AP_M",[2]];
 				};
 			};
 

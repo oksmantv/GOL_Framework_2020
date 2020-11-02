@@ -1,6 +1,6 @@
 
 /*
-
+ Setup in OKS_TaskSetup.SQF
 */
 _unit = _this select 0;
 _id = _this select 1;

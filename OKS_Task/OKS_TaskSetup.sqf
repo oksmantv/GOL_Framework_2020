@@ -1,9 +1,9 @@
-If (!isServer) exitWith {};
+
 
 /*
 
-	[Object,1,Number,TaskPosition,Side,ParentTask(BITaskObject)] execVM "Scripts\OKS_Task\OKS_Task.sqf";
-	[TaskObject_1,1,GetMarkerPos "Task_1",west,Task_0] execVM "Scripts\OKS_Task\OKS_Task.sqf";
+	[Object,1,Number,TaskPosition,Side,ParentTask(BITaskObject)] spawn OKS_TASKSETUP;
+	[TaskObject_1,1,GetMarkerPos "Task_1",west,Task_0] spawn OKS_TASKSETUP;
 	[TaskObject_1,1,GetMarkerPos "Task_1",west,Task_0] spawn OKS_TASKSETUP;
 
 */
@@ -35,51 +35,23 @@ switch (_TaskNumber) do {
 
 	case 1:{
 		_TaskID = "OKS_TASK_1";
-		_TaskTitle = "Hostage Rescue";
-		_TaskDescription = "The information on the laptop suggests that 5 local police officers are held as hostages due north-east. Rescue and extract, 3 minimal for success.";
+		_TaskTitle = "Destroy Stockpile";
+		_TaskDescription = "Intel found suggests a weapons cache west of Oreokastro. Expect enemy resistance in the area.";
 		_TaskAction = "Download Intel";
-		_TaskMarkerText = "Intel";
-		_TaskType = "attack";
-		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
+		_TaskMarkerText = "Stockpile";
+		_TaskType = "destroy";
+		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskDescription,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
 	};
 
 	case 2:{
 		_TaskID = "OKS_TASK_2";
-		_TaskTitle = "Bomb Station";
-		_TaskDescription = "The information on the laptop suggests that 5 local police officers are held as hostages due north-east. Rescue and extract, 3 minimal for success.";
-		_TaskAction = "Question Local";
-		_TaskMarkerText = "Intel";
-		_TaskType = "defend";
-		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
+		_TaskTitle = "Neutralize Enemy Reserves";
+		_TaskDescription = "Enemy reserves are located north-west. Eliminate them!";
+		_TaskAction = "Download Intel";
+		_TaskMarkerText = "Reserves";
+		_TaskType = "attack";
+		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskDescription,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
 	};
 
-	case 3:{
-		_TaskID = "OKS_TASK_3";
-		_TaskTitle = "Hostage Rescue";
-		_TaskDescription = "The information on the laptop suggests that 5 local police officers are held as hostages due north-east. Rescue and extract, 3 minimal for success.";
-		_TaskAction = "Download Intel";
-		_TaskMarkerText = "Intel";
-		_TaskType = "attack";
-		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
-	};
 
-	case 4:{
-		_TaskID = "OKS_TASK_4";
-		_TaskTitle = "Hostage Rescue";
-		_TaskDescription = "The information on the laptop suggests that 5 local police officers are held as hostages due north-east. Rescue and extract, 3 minimal for success.";
-		_TaskAction = "Download Intel";
-		_TaskMarkerText = "Intel";
-		_TaskType = "attack";
-		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
-	};
-
-	case 5:{
-		_TaskID = "OKS_TASK_5";
-		_TaskTitle = "Hostage Rescue";
-		_TaskDescription = "The information on the laptop suggests that 5 local police officers are held as hostages due north-east. Rescue and extract, 3 minimal for success.";
-		_TaskAction = "Download Intel";
-		_TaskMarkerText = "Intel";
-		_TaskType = "attack";
-		[_Object,_TaskID,_TaskAction,[_TaskID,_TaskTitle,_TaskMarkerText,_TaskPos,_TaskParent],_Side,_TaskNumber,_TaskType] spawn OKS_TASK;
-	};
 };

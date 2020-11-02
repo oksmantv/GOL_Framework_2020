@@ -65,7 +65,10 @@ private ["_gunner","_OKS_CHECK_TRAVEL"];
 		_arty setVehicleAmmo 1; sleep 1;
 		[_arty,1] spawn rhs_fnc_ss21_AI_prepare;
 		sleep (60 + (random 30));
-		[_arty, getPos _target]spawn rhs_fnc_ss21_AI_launch;
+
+		if(!alive gunner _arty) exitWith { systemChat "SCUD Gunner Dead. Killing Script" };
+			[_arty, getPos _target]spawn rhs_fnc_ss21_AI_launch;
+
 		sleep _reloadTime;
 
 	};

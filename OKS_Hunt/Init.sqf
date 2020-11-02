@@ -4,8 +4,6 @@
 //
 //	Made by Oksman
 
-if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
-
 // Functions
 OKS_Dynamic_Hunt = compile preprocessFileLineNumbers "Scripts\OKS_HUNT\OKS_Dynamic_Hunt.sqf";
 OKS_Dynamic_Track = compile preprocessFileLineNumbers "Scripts\OKS_HUNT\OKS_Dynamic_Track.sqf";
