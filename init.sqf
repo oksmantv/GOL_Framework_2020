@@ -4,7 +4,7 @@ MISSION_ROOT = call {
     _arr resize (count _arr - 8);
     toString _arr
 };
-[] execVM "hc\hc.sqf";
+[] execVM "Scripts\HeadlessClient\HeadlessClient.sqf";
 [] execVM "Scripts\NEKY_ServiceStation\Init.sqf";
 execVM "Scripts\NEKY_Supply\Ace_Resupply.sqf";
 execVM "Scripts\NEKY_Supply\Ace_Med.sqf";
