@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=833;
+		nextID=852;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3559;
+		nextID=3628;
 	};
 	class Camera
 	{
-		pos[]={255.38107,30,33.085007};
-		dir[]={-0.37809914,-0.32576486,0.86655742};
-		up[]={-0.1302782,0.94545102,0.29858199};
-		aside[]={0.91655517,-3.9464794e-008,0.39991373};
+		pos[]={91.520294,90.68206,-137.52231};
+		dir[]={0.016773824,-0.34775549,0.93745875};
+		up[]={0.0062203882,0.93758184,0.34771362};
+		aside[]={0.99986535,-2.3007487e-007,-0.017889926};
 	};
 };
 binarizationWanted=0;
@@ -41,17 +41,19 @@ addons[]=
 	"A3_Structures_F_Mil_Flags",
 	"A3_Ui_F",
 	"Desert",
-	"A3_Soft_F_Kart_Kart_01",
+	"A3_Soft_F_MRAP_01",
+	"ace_realisticnames",
 	"A3_Structures_F_Mil_Helipads",
 	"CUP_CAMisc_E_WF",
 	"A3_Structures_F_EPA_Items_Tools",
-	"CUP_Buildings_Config"
+	"CUP_WarfareBuildings",
+	"CUP_StandaloneTerrains_Core_Faction"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=15;
+		items=16;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -127,8 +129,8 @@ class AddonsMetaData
 		};
 		class Item11
 		{
-			className="A3_Soft_F_Kart";
-			name="Arma 3 Karts - Unarmored Land Vehicles";
+			className="A3_Soft_F";
+			name="Arma 3 Alpha - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
@@ -146,8 +148,13 @@ class AddonsMetaData
 		};
 		class Item14
 		{
-			className="CUP_Buildings_Config";
-			name="CUP_Buildings_Config";
+			className="CUP_WarfareBuildings";
+			name="CUP_WarfareBuildings";
+		};
+		class Item15
+		{
+			className="CUP_StandaloneTerrains_Core_Faction";
+			name="CUP_StandaloneTerrains_Core_Faction";
 		};
 	};
 };
@@ -302,7 +309,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=14;
+		items=12;
 		class Item0
 		{
 			dataType="Layer";
@@ -354,6 +361,25 @@ class Mission
 											{
 												class Attribute0
 												{
+													property="GW_TeamColor";
+													expression="_this setVariable ['GW_Common_GroupColor', _value, true];";
+													class Value
+													{
+														class data
+														{
+															class type
+															{
+																type[]=
+																{
+																	"STRING"
+																};
+															};
+															value="main";
+														};
+													};
+												};
+												class Attribute1
+												{
 													property="GW_LoadoutSelector";
 													expression="_this setVariable ['GW_Gear_Loadout', _value, true];";
 													class Value
@@ -371,7 +397,7 @@ class Mission
 														};
 													};
 												};
-												nAttributes=1;
+												nAttributes=2;
 											};
 										};
 										class Item1
@@ -1607,7 +1633,7 @@ class Mission
 							name="Misc";
 							class Entities
 							{
-								items=6;
+								items=7;
 								class Item0
 								{
 									dataType="Object";
@@ -1773,13 +1799,72 @@ class Mission
 									id=436;
 									atlOffset=5943441;
 								};
+								class Item6
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={91.611931,5.149631,11.42959};
+									};
+									side="Empty";
+									flags=4;
+									class Attributes
+									{
+										init="call{this setVariable [""ace_rearm_isSupplyVehicle"", true]}";
+										disableSimulation=1;
+									};
+									id=806;
+									type="Box_NATO_WpsLaunch_F";
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="allowDamage";
+											expression="_this allowdamage _value;";
+											class Value
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"BOOL"
+														};
+													};
+													value=0;
+												};
+											};
+										};
+										class Attribute1
+										{
+											property="hideObject";
+											expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
+											class Value
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"BOOL"
+														};
+													};
+													value=1;
+												};
+											};
+										};
+										nAttributes=2;
+									};
+								};
 							};
 							id=413;
-							atlOffset=2971720.5;
+							atlOffset=1485860.3;
 						};
 					};
 					id=403;
-					atlOffset=1485860.3;
+					atlOffset=742930.13;
 				};
 				class Item1
 				{
@@ -4946,15 +5031,16 @@ class Mission
 							name="MHQ";
 							class Entities
 							{
-								items=2;
+								items=6;
 								class Item0
 								{
 									dataType="Comment";
 									class PositionInfo
 									{
-										position[]={48,5,12};
+										position[]={54.691872,5,9.6441355};
 									};
-									title="MHQ";
+									title="MHQ 1";
+									description="This is a mobile headquarters, it also doubles as a mobile service station in this template.";
 									id=271;
 								};
 								class Item1
@@ -4962,7 +5048,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={48,6.0527129,16};
+										position[]={54.691391,7.2059455,13.642947};
 									};
 									side="Empty";
 									flags=4;
@@ -4973,8 +5059,114 @@ class Mission
 										init="call{[this, ""medium""] call GW_MHQ_Fnc_Handler; null = [This,25,true] ExecVM ""Scripts\NEKY_ServiceStation\MobileSS.sqf"";}";
 										name="mhq_1";
 									};
-									id=619;
-									type="C_Kart_01_F";
+									id=847;
+									type="B_MRAP_01_F";
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="ammoBox";
+											expression="[_this,_value] call bis_fnc_initAmmoBox;";
+											class Value
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+												};
+											};
+										};
+										nAttributes=1;
+									};
+								};
+								class Item2
+								{
+									dataType="Comment";
+									class PositionInfo
+									{
+										position[]={47.923,5,9.3109999};
+									};
+									title="MHQ 2";
+									description="This is a mobile headquarters, it also doubles as a mobile service station in this template.";
+									id=848;
+								};
+								class Item3
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={47.922699,7.2059455,13.309685};
+									};
+									side="Empty";
+									flags=4;
+									class Attributes
+									{
+										health=0.89999998;
+										lock="UNLOCKED";
+										init="call{[this, ""medium""] call GW_MHQ_Fnc_Handler; null = [This,25,true] ExecVM ""Scripts\NEKY_ServiceStation\MobileSS.sqf"";}";
+										name="mhq_2";
+									};
+									id=849;
+									type="B_MRAP_01_F";
+									class CustomAttributes
+									{
+										class Attribute0
+										{
+											property="ammoBox";
+											expression="[_this,_value] call bis_fnc_initAmmoBox;";
+											class Value
+											{
+												class data
+												{
+													class type
+													{
+														type[]=
+														{
+															"STRING"
+														};
+													};
+													value="[[[[],[]],[[],[]],[[],[]],[[],[]]],false]";
+												};
+											};
+										};
+										nAttributes=1;
+									};
+								};
+								class Item4
+								{
+									dataType="Comment";
+									class PositionInfo
+									{
+										position[]={42.013,5,9.0170002};
+									};
+									title="MHQ 3";
+									description="This is a mobile headquarters, it also doubles as a mobile service station in this template.";
+									id=850;
+								};
+								class Item5
+								{
+									dataType="Object";
+									class PositionInfo
+									{
+										position[]={42.012329,7.2059455,13.015659};
+									};
+									side="Empty";
+									flags=4;
+									class Attributes
+									{
+										health=0.89999998;
+										lock="UNLOCKED";
+										init="call{[this, ""medium""] call GW_MHQ_Fnc_Handler; null = [This,25,true] ExecVM ""Scripts\NEKY_ServiceStation\MobileSS.sqf"";}";
+										name="mhq_3";
+									};
+									id=851;
+									type="B_MRAP_01_F";
 									class CustomAttributes
 									{
 										class Attribute0
@@ -5020,7 +5212,7 @@ class Mission
 									flags=4;
 									class Attributes
 									{
-										init="call{null = [This,25,true] ExecVM ""Scripts\NEKY_ServiceStation\MobileSS.sqf"";}";
+										init="call{null = [This,25,true] ExecVM ""Scripts\NEKY_ServiceStation\MobileSS.sqf""; this setVariable [""ace_rearm_isSupplyVehicle"", true]}";
 									};
 									id=268;
 									type="CargoNet_01_box_F";
@@ -5053,7 +5245,7 @@ class Mission
 									dataType="Object";
 									class PositionInfo
 									{
-										position[]={80,5,16};
+										position[]={91.715973,5,16.228437};
 									};
 									side="Empty";
 									flags=4;
@@ -5069,9 +5261,10 @@ class Mission
 									dataType="Comment";
 									class PositionInfo
 									{
-										position[]={68,5,12};
+										position[]={67.929001,5,13.774};
 									};
 									title="Mobile Service Station";
+									description="This also adds pylon configuration options";
 									id=270;
 								};
 								class Item3
@@ -5079,9 +5272,10 @@ class Mission
 									dataType="Comment";
 									class PositionInfo
 									{
-										position[]={80,5,12};
+										position[]={91.715973,5,12.228437};
 									};
 									title="Service Station";
+									description="This service station allows pilots to configure their pylons in-case of issues with loadouts set by the editor.";
 									id=269;
 								};
 							};
@@ -5092,7 +5286,7 @@ class Mission
 				};
 			};
 			id=402;
-			atlOffset=548352;
+			atlOffset=455485.75;
 		};
 		class Item1
 		{
@@ -5100,14 +5294,14 @@ class Mission
 			name="Spawn Triggers";
 			class Entities
 			{
-				items=3;
+				items=6;
 				class Item0
 				{
 					dataType="Trigger";
-					position[]={150,5,150};
+					position[]={552.22003,5,149.979};
 					class Attributes
 					{
-						text="Spawn Trigger";
+						text="Spawn Trigger 2";
 						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
 						onActivation="call{null = [2] spawn GW_Fnc_spawnList;}";
 						sizeC=0;
@@ -5120,10 +5314,10 @@ class Mission
 				class Item1
 				{
 					dataType="Trigger";
-					position[]={250,5,150};
+					position[]={652.22003,5,149.979};
 					class Attributes
 					{
-						text="Spawn Trigger";
+						text="Spawn Trigger 3";
 						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
 						onActivation="call{null = [3] spawn GW_Fnc_spawnList;}";
 						sizeC=0;
@@ -5136,10 +5330,10 @@ class Mission
 				class Item2
 				{
 					dataType="Trigger";
-					position[]={50,5,150};
+					position[]={452.22003,5,149.979};
 					class Attributes
 					{
-						text="Spawn Trigger";
+						text="Spawn Trigger 1";
 						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
 						onActivation="null = [1] spawn GW_Fnc_spawnList;";
 						sizeC=0;
@@ -5147,6 +5341,54 @@ class Mission
 						isServerOnly=1;
 					};
 					id=266;
+					type="EmptyDetectorAreaR50";
+				};
+				class Item3
+				{
+					dataType="Trigger";
+					position[]={550.66248,5,49.775879};
+					class Attributes
+					{
+						text="Spawn Trigger 5";
+						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
+						onActivation="call{null = [5] spawn GW_Fnc_spawnList;}";
+						sizeC=0;
+						activationBy="ANYPLAYER";
+						isServerOnly=1;
+					};
+					id=840;
+					type="EmptyDetectorAreaR50";
+				};
+				class Item4
+				{
+					dataType="Trigger";
+					position[]={650.66248,5,49.775879};
+					class Attributes
+					{
+						text="Spawn Trigger 6";
+						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
+						onActivation="call{null = [6] spawn GW_Fnc_spawnList;}";
+						sizeC=0;
+						activationBy="ANYPLAYER";
+						isServerOnly=1;
+					};
+					id=841;
+					type="EmptyDetectorAreaR50";
+				};
+				class Item5
+				{
+					dataType="Trigger";
+					position[]={450.66241,5,49.775879};
+					class Attributes
+					{
+						text="Spawn Trigger 4";
+						condition="call{!({(isNull (objectParent _x))} count thislist isEqualTo 0) && isServer}";
+						onActivation="call{null = [4] spawn GW_Fnc_spawnList;}";
+						sizeC=0;
+						activationBy="ANYPLAYER";
+						isServerOnly=1;
+					};
+					id=842;
 					type="EmptyDetectorAreaR50";
 				};
 			};
@@ -5165,65 +5407,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={79.895958,5.149631,11.201153};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				init="call{this setVariable [""ace_rearm_isSupplyVehicle"", true]}";
-				disableSimulation=1;
-			};
-			id=806;
-			type="Box_NATO_WpsLaunch_F";
-			class CustomAttributes
-			{
-				class Attribute0
-				{
-					property="allowDamage";
-					expression="_this allowdamage _value;";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=0;
-						};
-					};
-				};
-				class Attribute1
-				{
-					property="hideObject";
-					expression="if !(is3DEN) then {_this hideobjectglobal _value;};";
-					class Value
-					{
-						class data
-						{
-							class type
-							{
-								type[]=
-								{
-									"BOOL"
-								};
-							};
-							value=1;
-						};
-					};
-				};
-				nAttributes=2;
-			};
-		};
-		class Item4
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={198.26811,4.195683,519.10846};
 			};
 			side="Empty";
@@ -5235,23 +5418,7 @@ class Mission
 			id=807;
 			type="US_WarfareBBarracks_Base_EP1";
 		};
-		class Item5
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={227.35011,4.0855699,518.19568};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="base_3";
-			};
-			id=808;
-			type="US_WarfareBLightFactory_base_EP1";
-		};
-		class Item6
+		class Item4
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5267,13 +5434,13 @@ class Mission
 			id=809;
 			type="TK_GUE_WarfareBHeavyFactory_Base_EP1";
 		};
-		class Item7
+		class Item5
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={166.32771,5.0111012,501.27087};
-				angles[]={-0,3.1473401,0};
+				angles[]={0,3.1473401,0};
 			};
 			side="Empty";
 			flags=4;
@@ -5327,13 +5494,13 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item8
+		class Item6
 		{
 			dataType="Object";
 			class PositionInfo
 			{
 				position[]={197.66154,5.0111012,501.2876};
-				angles[]={-0,3.1450586,0};
+				angles[]={0,3.1450586,0};
 			};
 			side="Empty";
 			flags=4;
@@ -5387,13 +5554,13 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item9
+		class Item7
 		{
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={226.80623,5.0111012,500.37292};
-				angles[]={-0,3.1480031,0};
+				position[]={227.57286,5.0111012,494.22397};
+				angles[]={0,1.5263094,0};
 			};
 			side="Empty";
 			flags=4;
@@ -5447,13 +5614,13 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item10
+		class Item8
 		{
 			dataType="Trigger";
-			position[]={191.59959,5,287.44824};
+			position[]={191.60001,5,287.448};
 			class Attributes
 			{
-				name="trigger_1";
+				name="NEKY_Hunt_Trigger_1";
 				sizeA=250;
 				sizeB=250;
 				repeatable=1;
@@ -5462,50 +5629,43 @@ class Mission
 			id=819;
 			type="EmptyDetectorAreaR250";
 		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={227.35001,11.042853,518.19598};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="base_3";
+			};
+			id=833;
+			type="INS_WarfareBAircraftFactory";
+		};
+		class Item10
+		{
+			dataType="Comment";
+			class PositionInfo
+			{
+				position[]={199.52347,5,497.3974};
+			};
+			title="These are activated through the init.sqf";
+			description="If you check the init.sqf you'll find examples of how these 3 bases are used. One is for infantry, the other for aircraft and the last for ground vehicles.";
+			id=838;
+		};
 		class Item11
 		{
-			dataType="Object";
+			dataType="Comment";
 			class PositionInfo
 			{
-				position[]={231.78468,7.5819349,92.681915};
+				position[]={191.49301,5,286.14185};
 			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=830;
-			type="Land_Dum_zboreny";
-		};
-		class Item12
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={256.55273,7.5819349,92.685577};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=831;
-			type="Land_Dum_zboreny";
-		};
-		class Item13
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={242.86139,7.5819349,112.33836};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-			};
-			id=832;
-			type="Land_Dum_zboreny";
+			title="This is one of the Hunt Triggers";
+			description="If players are within this zone and detected by the specificed faction, the bases will start sending reinforcements.";
+			id=839;
 		};
 	};
 };

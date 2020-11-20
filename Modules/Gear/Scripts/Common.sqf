@@ -51,11 +51,11 @@ if (GVARMAIN(mod_CTAB)) then {
 
 	if (_isPlayer) then {
 		_gps = "";
-		if (_role in ["sl","ftl"]) then {
+		if (_role in ["pl","fac","crew","sl","ftl"]) then {
 			_gps = _Android;
 		};
 
-		if (_role in ["pl","fac","crew","p","pj","dragon","marksman"]) then {
+		if (_role in ["p","pj","dragon","marksman"]) then {
 			_gps = _cTab;
 		};
 	};

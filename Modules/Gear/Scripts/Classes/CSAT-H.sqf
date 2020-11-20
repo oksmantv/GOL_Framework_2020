@@ -1,6 +1,6 @@
 
 _goggles = "";
-_helmet = "H_HelmetLeaderO_ocamo";
+_helmet = "H_HelmetAggressor_F";
 _uniform = "U_O_CombatUniform_ocamo";
 _vest = "V_HarnessOSpec_brn";
 _backpack = "B_FieldPack_ocamo";

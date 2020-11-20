@@ -32,10 +32,16 @@ switch (_OKS_Side) do {
 	_pilot setCombatMode "BLUE";
 	_pilot disableAI "FSM";
 	_Dir = _Drop getDir _Heli;
-	_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
 	_Move = _DropSite getRelPos [200,_Dir];
 	_VehicleSpawn = _heli getRelPos [6, (getDir _Heli + 90)];
-	deleteVehicle _DropSite;
+	_nearestRoad = [_Drop, 400] call BIS_fnc_nearestRoad;
+	systemChat str _nearestRoad;
+	if(!isNull _nearestRoad) then {
+		_DropSite = createVehicle ["HeliHEmpty", _nearestRoad, [], 0, "NONE"];
+	} else {
+		_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
+	};
+
 
 	_SlingLoad = _crew createUnit ["ModuleSlingload_F", [0,0,0],[],0,"NONE"];
 	_SlingLoad synchronizeObjectsAdd [_heli];
@@ -62,11 +68,11 @@ switch (_OKS_Side) do {
 
 	_vehicle enableSimulation true;
 
-	_unloadWP = _crew addWaypoint [_Drop,1];
+	_unloadWP = _crew addWaypoint [getPos _DropSite,1];
 	_unloadWP setWaypointType "UNHOOK";
 
 
-	waitUntil{sleep 5; _heli distance _Drop < 50};
+	waitUntil{sleep 5; _heli distance (getPos _DropSite) < 50};
 	_vehicle setFuel 1;
 	[_Cargo, nil, _HuntZone, 0, 30, 0, {}] Spawn NEKY_Hunt_Run;
 

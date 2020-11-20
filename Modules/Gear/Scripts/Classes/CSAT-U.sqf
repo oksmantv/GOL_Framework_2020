@@ -1,6 +1,6 @@
 
 _goggles = "";
-_helmet = "H_HelmetO_oucamo";
+_helmet = "H_HelmetAggressor_F";
 _uniform = "U_O_CombatUniform_oucamo";
 _vest = "V_HarnessO_gry";
 _backpack = "B_FieldPack_oucamo";
@@ -55,7 +55,7 @@ _MMG_mag_tr = "150Rnd_762x51_Box_Tracer";
 
 _sight = "";
 
-_LAT = ["launch_RPG32_F", _silencer, _pointer, _sight, _bipod];
+_LAT = ["launch_RPG32_green_F", _silencer, _pointer, _sight, _bipod];
 _LAT_mag = "RPG32_F";
 _LAT_mag_HE = "RPG32_HE_F";
 _LAT_ReUsable = true;

@@ -1,6 +1,6 @@
 
 _goggles = "";
-_helmet = "H_HelmetLeaderO_ghex_F";
+_helmet = "H_HelmetAggressor_F";
 _uniform = "U_O_T_Soldier_F";
 _vest = "V_HarnessOGL_ghex_F";
 _backpack = "B_FieldPack_ghex_F";
