@@ -7,7 +7,7 @@ _vest = "V_PlateCarrier2_tna_F";
 _backpack = "B_ViperHarness_oli_F";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tf_anprc155";
+	_backpackRadio = "TFAR_anprc155";
 };
 
 if (_role in ["ag","ammg"]) then {
@@ -56,13 +56,16 @@ _MMG_mag_tr = "200Rnd_65x39_cased_Box_Tracer";
 
 _sight = "";
 
-_LAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
-_LAT_mag = "MRAWS_HEAT_F";
-_LAT_ReUsable = true;
+_LAT = ["launch_NLAW_F", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "NLAW_F";
+_LAT_ReUsable = false;
+if (GVARMAIN(mod_ACE3)) then {
+	_LAT_ReUsable = true;
+};
 
-_MAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
-_MAT_mag = "MRAWS_HEAT_F";
-_MAT_mag_HE = "MRAWS_HE_F";
+_MAT = ["launch_RPG32_ghex_F", _silencer, _pointer, _sight, _bipod];
+_MAT_mag = "RPG32_F";
+_MAT_mag_HE = "RPG32_HE_F";
 
 _pistol = ["hgun_P07_khk_F", _silencer, _pointer, _sight, _bipod];
 _pistol_mag = "16Rnd_9x21_Mag";

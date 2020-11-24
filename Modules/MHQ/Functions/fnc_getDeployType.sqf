@@ -23,17 +23,18 @@ private _return = [];
 
 switch (_type) do {
 	case "small": {
-		_return = [
-			["Land_IRMaskingCover_02_F",90,[-0.796722,-3.09734,-0.00529003]],
-			["Land_CampingTable_F",189.946,[-1.85233,-6.61244,-0.00528622]],
-			["Land_CampingChair_V2_F",230,[-2.26124,-7.54794,-0.00528622]],
-			["Land_CampingChair_V2_F",353.474,[-1.2665,-5.82129,-0.00528622]],
-			["Land_Portable_generator_F",110,[-2.7164,-5.33063,-0.00528622]],
-			["Land_CanisterFuel_F",320,[-2.04576,-5.67267,-0.00528622]],
-			["PortableHelipadLight_01_red_F",340,[-1.69991,-6.54645,0.807719]],
-			["Land_Sleeping_bag_folded_F",38,[-1.80033,-6.83354,0.807719]],
-			["Land_Sleeping_bag_folded_F",121.391,[-2.10519,-6.41302,0.807719]],
-			["Box_NATO_Equip_F",90,[-2.64225,-2.79993,-0.00528622],["gearbox",(_mhq getVariable QGVAR(Side))]]
+
+		 _return = [
+			 ["Land_IRMaskingCover_02_F",90,[-0.796722,-3.09734,-0.00529003]],
+			 ["Land_CampingTable_F",189.946,[-1.85233,-6.61244,-0.00528622]],
+			 ["Land_CampingChair_V2_F",230,[-2.26124,-7.54794,-0.00528622]],
+			 ["Land_CampingChair_V2_F",353.474,[-1.2665,-5.82129,-0.00528622]],
+			 ["Land_Portable_generator_F",110,[-2.7164,-5.33063,-0.00528622]],
+			 ["Land_CanisterFuel_F",320,[-2.04576,-5.67267,-0.00528622]],
+			 ["PortableHelipadLight_01_red_F",340,[-1.69991,-6.54645,0.807719]],
+			 ["Land_Sleeping_bag_folded_F",38,[-1.80033,-6.83354,0.807719]],
+			 ["Land_Sleeping_bag_folded_F",121.391,[-2.10519,-6.41302,0.807719]],
+			 ["Box_NATO_Equip_F",90,[-2.64225,-2.79993,-0.00528622],["gearbox",(_mhq getVariable QGVAR(Side))]]
 		];
 	};
 

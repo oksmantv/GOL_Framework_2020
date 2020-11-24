@@ -15,11 +15,11 @@
 if !(isServer) then {false};
 
 params [
-	"_case"
+	"_case",
+	"_var"
 ];
 
 switch (_case) do {
-
 	case 1: {
 	};
 
@@ -30,12 +30,6 @@ switch (_case) do {
 	};
 
 	case 4: {
-	};
-
-	case 5: {
-	};
-
-	case 6: {
 	};
 
 	default {

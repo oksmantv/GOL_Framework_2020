@@ -17,12 +17,21 @@ p		- Pilot
 
 switch (toLower(_role)) do {
 
+	case "sl": {
+		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
+		[_rifleGL, _rifleGL_mag_tr, _glHE] call _addPrimary;
+		_IFAK call _addToUniform;
+		[[_smokegrenadeW,2],[_grenademini,2]] call _addToUniform;
+		[[_rifleGL_mag_tr,8],[_glHE,3]] call _addToVest;
+		["", "", "", "", "", _nvg] call _addLinkedItems;
+	};
+
 	case "ftl": {
 		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
 		[_rifleGL, _rifleGL_mag_tr, _glHE] call _addPrimary;
 		_IFAK call _addToUniform;
 		[[_smokegrenadeW,2],[_grenademini,2]] call _addToUniform;
-		[[_rifleGL_mag_tr,8],[_glHE,1]] call _addToVest;
+		[[_rifleGL_mag_tr,8],[_glHE,3]] call _addToVest;
 		["", "", "", "", "", _nvg] call _addLinkedItems;
 	};
 
@@ -36,7 +45,7 @@ switch (toLower(_role)) do {
 		[[_smokegrenadeW,2],[_grenademini,2]] call _addToUniform;
 		[[_rifle_mag_tr,8]] call _addToVest;
 		["", "", "", "", "", _nvg] call _addLinkedItems;
-		if ((random 1) >= 0.6) then {
+		if ((random 1) >= 0.7) then {
 			[_LAT, _LAT_mag, ""] call _addLaunchers;
 			if (_LAT_ReUsable) then {
 				["","","","",_backpack] call _addEquipment;
@@ -50,7 +59,7 @@ switch (toLower(_role)) do {
 		[_rifleGL, _rifleGL_mag_tr, _glHE] call _addPrimary;
 		_IFAK call _addToUniform;
 		[[_smokegrenadeW,2],[_grenademini,2]] call _addToUniform;
-		[[_rifleGL_mag_tr,8],[_glHE,1],[_glsmokeR,2]] call _addToVest;
+		[[_rifleGL_mag_tr,8],[_glHE,3],[_glsmokeR,2]] call _addToVest;
 		["", "", "", "", "", _nvg] call _addLinkedItems;
 		if (_LAT_ReUsable) then {
 			[[_LAT_mag,1],[_LAT_mag_HE,1]] call _addToBackpack;

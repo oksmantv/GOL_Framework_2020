@@ -51,11 +51,11 @@ if (GVARMAIN(mod_CTAB)) then {
 
 	if (_isPlayer) then {
 		_gps = "";
-		if (_role in ["pl","fac","crew","sl","ftl"]) then {
+		if (_role in ["sl","ftl"]) then {
 			_gps = _Android;
 		};
 
-		if (_role in ["p","pj","dragon","marksman"]) then {
+		if (_role in ["pl","fac","crew","p","pj","dragon","marksman"]) then {
 			_gps = _cTab;
 		};
 	};
@@ -126,6 +126,8 @@ _laserDesignator = "Laserdesignator";
 _battery = "Laserbatteries";
 _rangecard = "";
 _mortarRangeCard = "";
+_kestrel = "";
+_Tripod = "";
 
 _flashBang = "";
 _handFlareG = "";
@@ -144,6 +146,8 @@ if (GVARMAIN(mod_ACE3)) then {
 	_microDAGR = "ACE_DAGR";
 	_rangecard = "ACE_RangeCard";
 	_mortarRangeCard = "ACE_RangeTable_82mm";
+	_kestrel = "ACE_Kestrel4500";
+	_Tripod = "ACE_Tripod";
 
 	_flashBang = "ACE_M84";
 	_handFlareG = "ACE_HandFlare_Green";
