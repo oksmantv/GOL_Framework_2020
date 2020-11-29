@@ -12,9 +12,17 @@ execVM "Scripts\NEKY_Supply\Ace_Med.sqf";
 // Adds backup supply lines if AAC is not playing (Luke's Script)
 // Sets up working Service Station
 
-	//Comment if you want to dusable Neky_HuntBase / AirBase
+
+
+
+	//Comment if you want to disable Neky_HuntBase / AirBase
 	[] execVM "Scripts\NEKY_AirDrop\Init.sqf";
 	[] execVM "Scripts\NEKY_Hunt\Init.sqf";
+	// Set Max Count of Enemies spawned by bases
+	NEKY_Hunt_MaxCount = 40;
+	NEKY_Hunt_CurrentCount = [];
+	publicVariable "NEKY_Hunt_MaxCount";
+	publicVariable "NEKY_Hunt_CurrentCount";
 
 	/// Use this if you want AAC to be able to switch seats in their helicopters and get better doorgunners - Comment if you want to disable this
 	[] execVM "Scripts\OKS_AAC\Init.sqf";
@@ -35,7 +43,7 @@ execVM "Scripts\NEKY_Supply\Ace_Med.sqf";
 		sleep 10;
 
 		// Below are examples of how to use the hunt/airdrop bases
-		// These codes should be put in SpawnList unless you want them to start "searching" from the start of the mission. (Will Take more performance)
+		// These codes should be put in SpawnList unless you want them to start "searching" from the start of the mission.
 		[Base_1, Spawn_1, NEKY_Hunt_Trigger_1, 5,30,independent,6,30] spawn NEKY_Hunt_HuntBase;
 		[Base_2, Spawn_2, NEKY_Hunt_Trigger_1, 5,30,independent,"CUP_I_LR_MG_AAF",30] spawn NEKY_Hunt_HuntBase;
 		[Base_3,Spawn_3, NEKY_Hunt_Trigger_1,independent,"I_Heli_Transport_02_F","Random",[2,1]] spawn NEKY_Airbase;

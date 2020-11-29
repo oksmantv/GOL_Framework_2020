@@ -57,10 +57,16 @@ _PlayerTarget = objNull;
 
 Private ["_AirbaseRespawnTimer","_AirbaseRandomDistanceLZ","_AirbaseRefreshRate","_AirbaseRespawnCount","_EgressPos","_playerHunted","_OKS_Side","_VehicleClassName","_VehicleClassNameArray"];
 Private _Side = _OKS_Side;
-_Type = toLower _type;
+_type = toLower _type;
 
 #include "NEKY_Settings.sqf"
-
+_Heli = CreateVehicle [_Classname, [0,0,0], [], 0, "CAN_COLLIDE"];
+_Heli enableSimulation false;
+_Heli allowDamage false;
+_EmptyCargoSeats = (_Heli emptyPositions "Cargo");
+_UnitsPerGroup = round ( (round (_EmptyCargoSeats * (_Troops select 1))) / (_Troops select 0) );	// # OF GROUPS = (_Units select 0)  ||  % OF CARGO = (_Units select 1)
+_SpareIndex = ( (round (_EmptyCargoSeats * (_Troops select 1))) - (_UnitsPerGroup * (_Troops select 0)) );
+deleteVehicle _Heli;
 
 While {Alive _Object && _AirbaseRespawnCount > 0 } do {
 
@@ -83,41 +89,44 @@ While {Alive _Object && _AirbaseRespawnCount > 0 } do {
 
 	if (count _playerHunted != 0) then {
 
-		//sleep (Random _AirbaseRespawnTimer);
+		_AliveCurrentCount = NEKY_Hunt_CurrentCount select {alive _X};
+		_AliveNumber = count _AliveCurrentCount;
 
-		_AirbaseRespawnCount = _AirbaseRespawnCount - 1;
-		_PlayerTarget = _playerHunted call BIS_fnc_selectRandom;
-		_CalculatedIngress = _PlayerTarget getPos [Random 360,_AirbaseRandomDistanceLZ+(Random _AirbaseRandomDistanceLZ)];
-		sleep 5;
-		//SystemChat str _EgressPos; // OKS_FastRope
+		if((_AliveNumber + (_SpareIndex + 1)) <= NEKY_Hunt_MaxCount) then {
+			_AirbaseRespawnCount = _AirbaseRespawnCount - 1;
+			_PlayerTarget = _playerHunted call BIS_fnc_selectRandom;
+			_CalculatedIngress = _PlayerTarget getPos [Random 360,_AirbaseRandomDistanceLZ+(Random _AirbaseRandomDistanceLZ)];
+			sleep 5;
+			//SystemChat str _EgressPos; // OKS_FastRope
 
-		if(_type == "random") then {
-			_type = ["Unload","SlingDrop","FastRope"] call BIS_fnc_selectRandom;
+			if(_type == "random") then {
+				_type = ["Unload","SlingDrop","FastRope"] call BIS_fnc_selectRandom;
+			};
+
+			switch (_type) do {
+
+				case "unload": {
+					SystemChat "Running Unload";
+					[_OKS_Side, _Classname, False, _Type, _SpawnPos, _CalculatedIngress, _EgressPos, _Troops, [_CalculatedIngress],False,False,_ReinforcementZone] spawn NEKY_AirDrop;
+				};
+				case "slingdrop": {
+					SystemChat "Running SlingDrop";
+					_VehicleClassName = _VehicleClassNameArray call BIS_fnc_selectRandom;
+					//[_OKS_Side, _Classname, _VehicleClassName, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] spawn OKS_SlingDrop;
+					[_OKS_Side, _Classname, _VehicleClassName, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] execVM "Scripts\NEKY_AirDrop\OKS_SlingDrop.sqf";
+				};
+				case "fastrope": {
+					SystemChat "Running fastrope";
+					//[_OKS_Side, _Classname, _Troops, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] spawn OKS_FastRope;
+					[_OKS_Side, _Classname, _Troops, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] execVM "Scripts\NEKY_AirDrop\OKS_FastRope.sqf"
+				};
+			};
+
+			SystemChat "Helicopter Spawned...";
+			_Time = _AirbaseRespawnTimer + (Random _AirbaseRespawnTimer);
+			sleep _Time;
+			//SystemChat format ["%1 Airbase Cooldown Ended...",_Time];
 		};
-
-		switch (_type) do {
-
-			case "unload": {
-				SystemChat "Running Unload";
-				[_OKS_Side, _Classname, False, _Type, _SpawnPos, _CalculatedIngress, _EgressPos, _Troops, [_CalculatedIngress],False,False,_ReinforcementZone] spawn NEKY_AirDrop;
-			};
-			case "slingdrop": {
-				SystemChat "Running SlingDrop";
-				_VehicleClassName = _VehicleClassNameArray call BIS_fnc_selectRandom;
-				//[_OKS_Side, _Classname, _VehicleClassName, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] spawn OKS_SlingDrop;
-				[_OKS_Side, _Classname, _VehicleClassName, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] execVM "Scripts\NEKY_AirDrop\OKS_SlingDrop.sqf";
-			};
-			case "fastrope": {
-				SystemChat "Running fastrope";
-				//[_OKS_Side, _Classname, _Troops, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] spawn OKS_FastRope;
-				[_OKS_Side, _Classname, _Troops, _SpawnPos, _CalculatedIngress, _EgressPos, _ReinforcementZone] execVM "Scripts\NEKY_AirDrop\OKS_FastRope.sqf"
-			};
-		};
-
-		SystemChat "Helicopter Spawned...";
-		_Time = _AirbaseRespawnTimer + (Random _AirbaseRespawnTimer);
-		sleep _Time;
-		//SystemChat format ["%1 Airbase Cooldown Ended...",_Time];
 	}
 	else
 	{
