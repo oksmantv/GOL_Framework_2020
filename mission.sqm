@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3628;
+		nextID=3651;
 	};
 	class Camera
 	{
-		pos[]={91.520294,90.68206,-137.52231};
-		dir[]={0.016773824,-0.34775549,0.93745875};
-		up[]={0.0062203882,0.93758184,0.34771362};
-		aside[]={0.99986535,-2.3007487e-007,-0.017889926};
+		pos[]={41.573181,36.605572,-25.837282};
+		dir[]={-0.36707333,-0.43989491,0.81963068};
+		up[]={-0.17980561,0.89804542,0.40148139};
+		aside[]={0.91267717,-2.7695205e-007,0.4087449};
 	};
 };
 binarizationWanted=0;
@@ -4983,7 +4983,7 @@ class Mission
 							{
 								position[]={28,5,16};
 							};
-							name="hc_slot2";
+							name="HC2";
 							isPlayable=1;
 							description="Headless Client 2";
 							id=259;
@@ -4996,7 +4996,7 @@ class Mission
 							{
 								position[]={32,5,16};
 							};
-							name="hc_slot3";
+							name="HC3";
 							isPlayable=1;
 							description="Headless Client 3";
 							id=260;
@@ -5019,7 +5019,7 @@ class Mission
 							{
 								position[]={24,5,16};
 							};
-							name="hc_slot1";
+							name="HC1";
 							isPlayable=1;
 							description="Headless Client 1";
 							id=258;
