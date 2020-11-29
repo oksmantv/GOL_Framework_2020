@@ -301,6 +301,7 @@ if ((_Units Select 0) > 0) then
 	for "_y" from 1 to (_Units select 0) do
 	{
 		_Group = CreateGroup _Side;
+		_Group setVariable ["GW_Performance_autoDelete", false, true];
 		for "_i" from 1 to (_UnitsPerGroup + _SpareIndex) do
 		{
 			Private "_Unit";

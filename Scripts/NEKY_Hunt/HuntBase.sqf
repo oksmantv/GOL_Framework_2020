@@ -178,7 +178,7 @@ while {alive _Base && _Waves > 0} do
 							NEKY_Hunt_CurrentCount pushBackUnique _Unit;
 							_Unit MoveInCargo _Vehicle;
 						};
-
+						_Group setVariable ["GW_Performance_autoDelete", false, true];
 						///SystemChat str [_Skill,_SkillVariables,_Group];
 						[_Group, _SkillVariables, _Skill] Spawn NEKY_Hunt_SetSkill;
 						_Group AllowFleeing 0;
