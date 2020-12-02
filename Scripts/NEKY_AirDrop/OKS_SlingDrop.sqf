@@ -32,16 +32,9 @@ switch (_OKS_Side) do {
 	_pilot setCombatMode "BLUE";
 	_pilot disableAI "FSM";
 	_Dir = _Drop getDir _Heli;
+	_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
 	_Move = _DropSite getRelPos [200,_Dir];
 	_VehicleSpawn = _heli getRelPos [6, (getDir _Heli + 90)];
-	_nearestRoad = [_Drop, 400] call BIS_fnc_nearestRoad;
-	systemChat str _nearestRoad;
-	if(!isNull _nearestRoad) then {
-		_DropSite = createVehicle ["HeliHEmpty", _nearestRoad, [], 0, "NONE"];
-	} else {
-		_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
-	};
-
 
 	_SlingLoad = _crew createUnit ["ModuleSlingload_F", [0,0,0],[],0,"NONE"];
 	_SlingLoad synchronizeObjectsAdd [_heli];
