@@ -212,6 +212,9 @@ if (_isMan) then {
 				[_unit, _glflareW, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeG, 5] call _fnc_AddObjectsCargo;
+				[_unit, "B_UavTerminal", 10] call _fnc_AddObjectsCargo;
+				[_unit, "O_UavTerminal", 10] call _fnc_AddObjectsCargo;
+				[_unit, "I_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, "ACE_EarBuds", 50] call _fnc_AddObjectsCargo;
 					if (isClass (configFile >> "CfgPatches" >> "GW_StaticWeapons")) then {
@@ -250,6 +253,10 @@ if (_isMan) then {
 							[_unit, 0, ["ACE_MainActions","GW_GetStatics"], _action] call ace_interact_menu_fnc_addActionToObject;
 						} forEach _staticWeaponList;
 					};
+				};
+
+				if(GVARMAIN(mod_ACE3)) then {
+					[_unit, _mortarRangeCard, 10] call _fnc_AddObjectsCargo;
 				};
 				if (GVARMAIN(mod_TFAR)) then {
 					[_unit, "TF_pnr1000a", 10] call _fnc_AddObjectsCargo;

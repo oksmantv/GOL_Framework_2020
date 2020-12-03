@@ -8,7 +8,7 @@ class EditorData
 	toggles=1;
 	class ItemIDProvider
 	{
-		nextID=852;
+		nextID=855;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=3651;
+		nextID=3674;
 	};
 	class Camera
 	{
-		pos[]={41.573181,36.605572,-25.837282};
-		dir[]={-0.36707333,-0.43989491,0.81963068};
-		up[]={-0.17980561,0.89804542,0.40148139};
-		aside[]={0.91267717,-2.7695205e-007,0.4087449};
+		pos[]={15.439769,73.417244,103.00729};
+		dir[]={0.83904201,-0.44476366,-0.31345192};
+		up[]={0.4166511,0.89564019,-0.1556527};
+		aside[]={-0.34997004,1.4528632e-007,-0.93679309};
 	};
 };
 binarizationWanted=0;
@@ -44,16 +44,15 @@ addons[]=
 	"A3_Soft_F_MRAP_01",
 	"ace_realisticnames",
 	"A3_Structures_F_Mil_Helipads",
-	"CUP_CAMisc_E_WF",
 	"A3_Structures_F_EPA_Items_Tools",
-	"CUP_WarfareBuildings",
-	"CUP_StandaloneTerrains_Core_Faction"
+	"A3_Structures_F_Mil_Cargo",
+	"A3_Structures_F_Enoch_Military_Radar"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=16;
+		items=14;
 		class Item0
 		{
 			className="A3_Characters_F";
@@ -136,25 +135,17 @@ class AddonsMetaData
 		};
 		class Item12
 		{
-			className="CUP_CAMisc_E_WF";
-			name="CUP_CAMisc_E_WF";
-		};
-		class Item13
-		{
 			className="A3_Structures_F_EPA";
 			name="Arma 3 Survive Episode - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item14
+		class Item13
 		{
-			className="CUP_WarfareBuildings";
-			name="CUP_WarfareBuildings";
-		};
-		class Item15
-		{
-			className="CUP_StandaloneTerrains_Core_Faction";
-			name="CUP_StandaloneTerrains_Core_Faction";
+			className="A3_Structures_F_Enoch_Military";
+			name="Arma 3 Contact Platform - Military Buildings and Structures";
+			author="Bohemia Interactive";
+			url="https://www.arma3.com";
 		};
 	};
 };
@@ -5407,38 +5398,6 @@ class Mission
 			dataType="Object";
 			class PositionInfo
 			{
-				position[]={198.26811,4.195683,519.10846};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="base_2";
-			};
-			id=807;
-			type="US_WarfareBBarracks_Base_EP1";
-		};
-		class Item4
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={160.29002,5,519.76312};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="base_1";
-			};
-			id=809;
-			type="TK_GUE_WarfareBHeavyFactory_Base_EP1";
-		};
-		class Item5
-		{
-			dataType="Object";
-			class PositionInfo
-			{
 				position[]={166.32771,5.0111012,501.27087};
 				angles[]={0,3.1473401,0};
 			};
@@ -5494,7 +5453,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item6
+		class Item4
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5554,7 +5513,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item7
+		class Item5
 		{
 			dataType="Object";
 			class PositionInfo
@@ -5614,7 +5573,7 @@ class Mission
 				nAttributes=2;
 			};
 		};
-		class Item8
+		class Item6
 		{
 			dataType="Trigger";
 			position[]={191.60001,5,287.448};
@@ -5629,23 +5588,7 @@ class Mission
 			id=819;
 			type="EmptyDetectorAreaR250";
 		};
-		class Item9
-		{
-			dataType="Object";
-			class PositionInfo
-			{
-				position[]={227.35001,11.042853,518.19598};
-			};
-			side="Empty";
-			flags=4;
-			class Attributes
-			{
-				name="base_3";
-			};
-			id=833;
-			type="INS_WarfareBAircraftFactory";
-		};
-		class Item10
+		class Item7
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -5656,7 +5599,7 @@ class Mission
 			description="If you check the init.sqf you'll find examples of how these 3 bases are used. One is for infantry, the other for aircraft and the last for ground vehicles.";
 			id=838;
 		};
-		class Item11
+		class Item8
 		{
 			dataType="Comment";
 			class PositionInfo
@@ -5666,6 +5609,54 @@ class Mission
 			title="This is one of the Hunt Triggers";
 			description="If players are within this zone and detected by the specificed faction, the bases will start sending reinforcements.";
 			id=839;
+		};
+		class Item9
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={160.28999,8.8754005,519.763};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="base_1";
+			};
+			id=852;
+			type="Land_Cargo_HQ_V1_F";
+		};
+		class Item10
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={198.26801,8.8754005,519.10797};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="base_2";
+			};
+			id=853;
+			type="Land_Cargo_HQ_V1_F";
+		};
+		class Item11
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={227.35001,11.789392,518.19598};
+			};
+			side="Empty";
+			flags=4;
+			class Attributes
+			{
+				name="base_3";
+			};
+			id=854;
+			type="Land_MobileRadar_01_radar_F";
 		};
 	};
 };
