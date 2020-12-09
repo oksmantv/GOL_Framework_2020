@@ -144,6 +144,7 @@ if (GVARMAIN(mod_ACE3)) then {
 	_microDAGR = "ACE_DAGR";
 	_rangecard = "ACE_RangeCard";
 	_mortarRangeCard = "ACE_RangeTable_82mm";
+	_Earplugs = "ACE_EarPlugs";
 
 	_flashBang = "ACE_M84";
 	_handFlareG = "ACE_HandFlare_Green";

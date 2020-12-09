@@ -216,7 +216,7 @@ if (_isMan) then {
 				[_unit, "O_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				[_unit, "I_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
-					[_unit, "ACE_EarBuds", 50] call _fnc_AddObjectsCargo;
+					[_unit, "ACE_EarPlugs", 50] call _fnc_AddObjectsCargo;
 					if (isClass (configFile >> "CfgPatches" >> "GW_StaticWeapons")) then {
 						private _staticWeaponList = ["ACE_B_SpottingScope"];
 						if (toLower(_realSide) isEqualTo "west") then {
