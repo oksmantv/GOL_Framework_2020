@@ -76,6 +76,13 @@ ACE Settings:
   * Air temperature added.
 
 Radios:
-* Reverted to Task Force Radio (0.9.7)
+* Updated for Task Force Radio (BETA)
+* Changes include but are not limited to:
+  * Added support for Contact radio backpacks.
+  * Added vehicle intercomms (Experimental)
+  * AI will now hear and react to players talking/yelling next to them.
+  * Zeus can now hear local chatter depending on where the camera is.
+  * Disabled Voice Cone, the players voice would be turned down if looking away from the listener, in this case a simple radius is around the player.
+  * Added compatibility with DUI Squad Radar allowing to know who's talking when.
 
 More changes to come in the future.
