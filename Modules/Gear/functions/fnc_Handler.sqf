@@ -228,7 +228,7 @@ if (_isMan) then {
 				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeG, 5] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
-					[_unit, "ACE_EarBuds", 50] call _fnc_AddObjectsCargo;
+					[_unit, "ACE_EarPlugs", 50] call _fnc_AddObjectsCargo;
 					if (isClass (configFile >> "CfgPatches" >> "GW_StaticWeapons")) then {
 						private _staticWeaponList = ["ACE_B_SpottingScope"];
 						if (toLower(_realSide) isEqualTo "west") then {
@@ -266,6 +266,10 @@ if (_isMan) then {
 						} forEach _staticWeaponList;
 					};
 				};
+
+				if(GVARMAIN(mod_ACE3)) then {
+					[_unit, _mortarRangeCard, 10] call _fnc_AddObjectsCargo;
+				};				
 				if (GVARMAIN(mod_TFAR)) then {
 					[_unit, "TFAR_pnr1000a", 10] call _fnc_AddObjectsCargo;
 					[_unit, "TFAR_anprc152", 10] call _fnc_AddObjectsCargo;

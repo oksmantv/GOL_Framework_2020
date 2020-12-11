@@ -1,4 +1,4 @@
-
+/*
 class ace_advanced_fatigue_enabled {
 	value = 1;
 	typeName = "BOOL";
@@ -109,13 +109,13 @@ class ace_cookoff_enable {
 	force = 1;
 };
 
-/*
+
 class ace_cookoff_enableAmmobox {
     value = 1;
     typeName = "BOOL";
 	force = 1;
 };
-*/
+
 
 // -------------------------------------------
 
@@ -485,3 +485,4 @@ class ace_zeus_autoAddObjects {
 	typeName = "BOOL";
 	force = 1;
 };
+*/

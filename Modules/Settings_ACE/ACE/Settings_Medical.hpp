@@ -1,4 +1,4 @@
-
+/*
 class ace_medical_level {
 	value = 1;
 	typeName = "SCALAR";
@@ -205,3 +205,4 @@ class ace_medical_blood_enabledfor {
 	typeName = "SCALAR";
 	force = 1;
 };
+*/

@@ -15,10 +15,3 @@ NEKY_Hunt_Spawn = compile preprocessFileLineNumbers "Scripts\NEKY_Hunt\Functions
 NEKY_Hunt_SetSkill = compile preprocessFileLineNumbers "Scripts\NEKY_Hunt\Functions\SetSkill.sqf";
 NEKY_Hunt_Hunting = compile preprocessFileLineNumbers "Scripts\NEKY_Hunt\Functions\Hunting.sqf";
 NEKY_Hunt_HuntBase = compile preprocessFileLineNumbers "Scripts\NEKY_Hunt\HuntBase.sqf";
-
-
-// Variables
-NEKY_Hunt_MaxCount = 40;
-NEKY_Hunt_CurrentCount = [];
-publicVariable "NEKY_Hunt_MaxCount";
-publicVariable "NEKY_Hunt_CurrentCount";

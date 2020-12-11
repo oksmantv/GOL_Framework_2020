@@ -154,11 +154,11 @@ force ace_maptools_drawStraightLines = true;
 force ace_maptools_rotateModifierKey = 1;
 
 // ACE Medical ----------------------------------------------------------------------
-force ace_medical_bleedingCoefficient = 0.75;
+force ace_medical_bleedingCoefficient = 1;
 force ace_medical_blood_bloodLifetime = 900;
 force ace_medical_blood_enabledFor = 1;
 force ace_medical_blood_maxBloodObjects = 100;
-force ace_medical_fatalDamageSource = 2;
+force ace_medical_fatalDamageSource = 1;
 force ace_medical_feedback_bloodVolumeEffectType = 2;
 ace_medical_feedback_painEffectType = 1;
 force ace_medical_fractureChance = 0;
@@ -166,7 +166,7 @@ force ace_medical_fractures = 0;
 force ace_medical_ivFlowRate = 2;
 force ace_medical_limping = 0;
 force ace_medical_painCoefficient = 1;
-force ace_medical_playerDamageThreshold = 2.5;
+force ace_medical_playerDamageThreshold = 3;
 force ace_medical_spontaneousWakeUpChance = 0.4;
 force ace_medical_spontaneousWakeUpEpinephrineBoost = 3;
 force ace_medical_statemachine_AIUnconsciousness = true;
@@ -204,7 +204,7 @@ force ace_medical_gui_enableActions = 1;
 ace_medical_gui_enableMedicalMenu = 1;
 force ace_medical_gui_enableSelfActions = true;
 force ace_medical_gui_maxDistance = 6.5;
-force ace_medical_gui_openAfterTreatment = true;
+ace_medical_gui_openAfterTreatment = true;
 
 // ACE Medical - AI -----------------------------------------------------------------
 force ace_medical_ai_enabledFor = 1;
@@ -225,7 +225,7 @@ ace_nametags_showPlayerNames = 1;
 force ace_nametags_showPlayerRanks = false;
 force ace_nametags_showSoundWaves = 0;
 force ace_nametags_showVehicleCrewInfo = true;
-force ace_nametags_tagSize = 2;
+ace_nametags_tagSize = 2;
 
 // ACE Nightvision ----------------------------------------------------------------------
 force ace_nightvision_aimDownSightsBlur = 0.75;
@@ -241,14 +241,14 @@ force ace_overheating_enabled = true;
 force ace_overheating_overheatingDispersion = true;
 ace_overheating_showParticleEffects = true;
 force ace_overheating_showParticleEffectsForEveryone = false;
-force ace_overheating_unJamFailChance = 0.2;
+force ace_overheating_unJamFailChance = 0.3;
 force ace_overheating_unJamOnreload = true;
 
 // ACE Pointing ----------------------------------------------------------------------
 force ace_finger_enabled = true;
 //force ace_finger_indicatorColor = [0.83,0.68,0.21,0.75];
 //force ace_finger_indicatorForSelf = true;
-force ace_finger_maxRange = 10;
+force ace_finger_maxRange = 15;
 
 // ACE Pylons ----------------------------------------------------------------------
 force ace_pylons_enabledForZeus = true;
@@ -256,7 +256,7 @@ force ace_pylons_enabledFromAmmoTrucks = true;
 force ace_pylons_rearmNewPylons = true;
 force ace_pylons_requireEngineer = false;
 force ace_pylons_requireToolkit = false;
-force ace_pylons_searchDistance = 20;
+force ace_pylons_searchDistance = 30;
 force ace_pylons_timePerPylon = 5;
 
 // ACE Quick Mount ----------------------------------------------------------------------
@@ -278,7 +278,7 @@ force ace_scopes_enabled = true;
 force ace_scopes_forceUseOfAdjustmentTurrets = false;
 force ace_scopes_overwriteZeroRange = false;
 force ace_scopes_simplifiedZeroing = false;
-force ace_scopes_useLegacyUI = false;
+ace_scopes_useLegacyUI = false;
 force ace_scopes_zeroReferenceBarometricPressure = 1013.25;
 force ace_scopes_zeroReferenceHumidity = 0;
 force ace_scopes_zeroReferenceTemperature = 15;

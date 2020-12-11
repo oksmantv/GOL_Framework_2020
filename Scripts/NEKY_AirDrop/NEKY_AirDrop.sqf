@@ -301,6 +301,7 @@ if ((_Units Select 0) > 0) then
 	for "_y" from 1 to (_Units select 0) do
 	{
 		_Group = CreateGroup _Side;
+		_Group setVariable ["GW_Performance_autoDelete", false, true];
 		for "_i" from 1 to (_UnitsPerGroup + _SpareIndex) do
 		{
 			Private "_Unit";
@@ -309,10 +310,14 @@ if ((_Units Select 0) > 0) then
 				_Unit = _Group CreateUnit [(_TeamLeaders call BIS_FNC_selectRandom), [0,0,200], [], 0, "NONE"];
 				_Unit setRank "SERGEANT";
 				[_Unit, "unit", _Side] call NEKY_AirDropAISkill;
+				NEKY_Hunt_CurrentCount pushBackUnique _Unit;
+				publicVariable "NEKY_Hunt_CurrentCount";
 			} else {
 				_Unit = _Group CreateUnit [(_UnitClasses call BIS_FNC_selectRandom), [0,0,200], [], 0, "NONE"];
 				_Unit setRank "PRIVATE";
 				[_Unit, "unit", _Side] call NEKY_AirDropAISkill;
+				NEKY_Hunt_CurrentCount pushBackUnique _Unit;
+				publicVariable "NEKY_Hunt_CurrentCount";
 			};
 			_Unit assignAsCargo _Heli;
 			_Unit moveInCargo _Heli;

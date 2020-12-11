@@ -25,7 +25,7 @@ if (!GVARMAIN(mod_ACE3)) exitWith {false};
 
 [
 	QGVAR(revive), "LIST",
-	["Enable Revive", "Configures ACE Revive with GOL settings"],
+	["Enable Revive", "Configures ACE Revive with GOL settings - NO LONGER IN USE!"],
 	QUOTE(ADDON),
 	[
 		[
@@ -49,23 +49,27 @@ if (!GVARMAIN(mod_ACE3)) exitWith {false};
 [QGVAR(setMedical), {
 	params ["_type"];
 	if (_type isEqualTo 1) then {
-		["ACE_Medical_level", 1] call GW_Fnc_changeSetting;
-		["ACE_Medical_medicSetting", 1] call GW_Fnc_changeSetting;
-		["ACE_Medical_enableOverdosing", true] call GW_Fnc_changeSetting;
-		["ACE_Medical_bleedingCoefficient", 5] call GW_Fnc_changeSetting;
-		["ACE_Medical_painCoefficient", 3] call GW_Fnc_changeSetting;
-		["ACE_Medical_playerDamageThreshold", 1.5] call GW_Fnc_changeSetting;
+		["ACE_Medical_bleedingCoefficient", 1] call GW_Fnc_changeSetting;
+		["ACE_Medical_painCoefficient", 1] call GW_Fnc_changeSetting;
+		["ACE_Medical_playerDamageThreshold", 3] call GW_Fnc_changeSetting;
 		["ACE_Medical_AIDamageThreshold", 1] call GW_Fnc_changeSetting;
+		["ace_medical_fatalDamageSource", 1] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_clearTraumaAfterBandage", true] call GW_Fnc_changeSetting;
 	//	ACE_Medical_allowDeadBodyMovement = false;		// Does nothing
 	} else {
-		["ACE_Medical_level", 2] call GW_Fnc_changeSetting;
-		["ACE_Medical_medicSetting", 2] call GW_Fnc_changeSetting;
-		["ACE_Medical_enableOverdosing", true] call GW_Fnc_changeSetting;
-		["ACE_Medical_bleedingCoefficient", 0.5] call GW_Fnc_changeSetting;
+		["ACE_Medical_bleedingCoefficient", 1.2] call GW_Fnc_changeSetting;
 		["ACE_Medical_painCoefficient", 2] call GW_Fnc_changeSetting;
-		["ACE_Medical_playerDamageThreshold", 1.5] call GW_Fnc_changeSetting;
+		["ACE_Medical_playerDamageThreshold", 1.75] call GW_Fnc_changeSetting;
 		["ACE_Medical_AIDamageThreshold", 1] call GW_Fnc_changeSetting;
-		["ACE_Medical_enableUnconsciousnessAI", 0] call GW_Fnc_changeSetting;
+		["ACE_medical_limping", 1] call GW_Fnc_changeSetting;
+		["ACE_medical_fractures", 1] call GW_Fnc_changeSetting;
+		["ace_medical_fractureChance", 0.6] call GW_Fnc_changeSetting;
+		["ace_medical_fatalDamageSource", 2] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_advancedDiagnose", true] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_advancedMedication", true] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_advancedBandages", 1] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_clearTraumaAfterBandage", true] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_cprSuccessChance", 0.6] call GW_Fnc_changeSetting;
 	};
 }] call CBA_fnc_addEventHandler;
 

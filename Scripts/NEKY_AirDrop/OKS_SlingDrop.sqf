@@ -20,6 +20,10 @@ switch (_OKS_Side) do {
 		_PilotClasses = ["I_Pilot_F"];
 		_UnitArray = ["I_Soldier_TL_F","I_Soldier_TL_F","I_Soldier_LAT_F","I_Soldier_GL_F","I_medic_F","I_Soldier_AR_F","I_Soldier_A_F"];
 	};
+	case civilian:{
+		_PilotClasses = ["I_Pilot_F"];
+		_UnitArray = ["I_Soldier_TL_F","I_Soldier_TL_F","I_Soldier_LAT_F","I_Soldier_GL_F","I_medic_F","I_Soldier_AR_F","I_Soldier_A_F"];
+	};
 
 };
 
@@ -32,16 +36,9 @@ switch (_OKS_Side) do {
 	_pilot setCombatMode "BLUE";
 	_pilot disableAI "FSM";
 	_Dir = _Drop getDir _Heli;
+	_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
 	_Move = _DropSite getRelPos [200,_Dir];
 	_VehicleSpawn = _heli getRelPos [6, (getDir _Heli + 90)];
-	_nearestRoad = [_Drop, 400] call BIS_fnc_nearestRoad;
-	systemChat str _nearestRoad;
-	if(!isNull _nearestRoad) then {
-		_DropSite = createVehicle ["HeliHEmpty", _nearestRoad, [], 0, "NONE"];
-	} else {
-		_DropSite = createVehicle ["HeliHEmpty", _Drop, [], 0, "NONE"];
-	};
-
 
 	_SlingLoad = _crew createUnit ["ModuleSlingload_F", [0,0,0],[],0,"NONE"];
 	_SlingLoad synchronizeObjectsAdd [_heli];

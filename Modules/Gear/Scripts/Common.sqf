@@ -148,6 +148,9 @@ if (GVARMAIN(mod_ACE3)) then {
 	_mortarRangeCard = "ACE_RangeTable_82mm";
 	_kestrel = "ACE_Kestrel4500";
 	_Tripod = "ACE_Tripod";
+	_Earplugs = "ACE_EarPlugs";
+	_ATrag = "ACE_ATragMX";
+	_Kestrel = "ACE_Kestrel4500";
 
 	_flashBang = "ACE_M84";
 	_handFlareG = "ACE_HandFlare_Green";

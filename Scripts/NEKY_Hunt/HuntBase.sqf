@@ -1,12 +1,8 @@
-
-
 // Created by Oksman
 /*
 		Reminder this code needs to be precompiled and initiated using the same method all Neko-Scripts use, the following needs to be inside an init file (Create your own "init.sqf" in mission directory):
 		[] execVM "Scripts\NEKY_Hunt\Init.sqf";
-
 		[Base Object, SpawnObject, Trigger, Number Of Waves,Respawn Delay,Side,Number of Soldiers / Vehicle Classname,Refresh Rate] spawn NEKY_Hunt_HuntBase;
-
 		Script Parameters:
     	Base Object - If this object is destroyed the camp will no longer spawn attacks, use something that can be destroyed such as trucks, tents, buildings etc.
 		SpawnObject - Set down a small object (box of matches) and face the direction you want the vehicle/group to spawn in
@@ -16,31 +12,23 @@
 		Side - The side of the faction you wanted spawned
 		Soldiers or Classname - SCALAR or ARRAY - If you select numbers there will be X amount of soldiers in 1 group. If you input a string Example: "CUP_O_BTR40_MG_TKM" you will get this vehicle crewed by the faction the vehicle is      based on. If you want to have a randomly selected vehicle you can input an Array with strings, example: ["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"]
 		Refresh Rate - Time in seconds you want the script to refresh their knowledge of Players inside the hunt zone, quickens the response with shorter refresh, but increases slightly in the performance cost.
-
 		Examples on code:
 		[Object_1, Spawn_1, Trigger_1, 10,300,EAST,6,30] spawn NEKY_Hunt_HuntBase;
 		[Object_1, Spawn_1, Trigger_1, 10,450,EAST,"CUP_O_BTR40_MG_TKM",30] spawn NEKY_Hunt_HuntBase;
 		[Object_1, Spawn_1, Trigger_1, 10,450,EAST,["CUP_O_MTLB_pk_TK_MILITIA","CUP_O_BTR40_MG_TKM","CUP_O_Ural_ZU23_TKM","CUP_O_BTR90_RU"],30] spawn NEKY_Hunt_HuntBase;
-
 		Step-by-Step Guide:
 		You need two objects, you need a base object and a spawn object. Place down a destructible object and name it 'Object_1'
 		(When this object is destroyed, the "base" is destroyed thus it will not spawn more units)
-
 		Next create a spawn object and name it 'Spawn_1', this could be any object but I suggest using a tiny object such as 'Box of matches'. This is the object the units/vehicle will use to spawn on top of.
 		(You can also use a invisible helipad but this will make AI helicopters land on these spawns in some occasions, so not recommended.)
-
 		You now need a Trigger, create a trigger and name it Trigger_1. Set the activation to "Any Players" and set it to "Repeatable". All this is chosen in the trigger properties (Double-click the trigger).
 		(This is now the trigger area the enemy spawned units will hunt inside, this means if players are detected within this trigger, they will start spawning units and start hunting. When they leave the AI will cease hunting and cease spawning.)
-
 		You now have all the necessary editor placed objects to use the code. You have a base object, spawn object and a trigger. Now open your spawnList.sqf and paste the following:
 		[Object_1, Spawn_1, Trigger_1, 10,300,EAST,6,30] spawn NEKY_Hunt_HuntBase;
-
 		The final properties in the bracket above is:
 		Number of Waves, Respawn Delay, Side, Soldiers and Refresh Rate.
 		10				 300			EAST  6			   30
-
 		These are the properties you have to change to match whatever you need. Now when you activate your spawnList case through the standard triggers, your base will initiate. To have them spawn in, you need to be detected by the enemy side and reach a knowsAbout value above 3.5. Get into CQB with the enemy and this should activate the hunting bases.
-
 */
 
 if (!isServer) exitWith {false};	// Ensures only server
@@ -178,7 +166,7 @@ while {alive _Base && _Waves > 0} do
 							NEKY_Hunt_CurrentCount pushBackUnique _Unit;
 							_Unit MoveInCargo _Vehicle;
 						};
-
+						_Group setVariable ["GW_Performance_autoDelete", false, true];
 						///SystemChat str [_Skill,_SkillVariables,_Group];
 						[_Group, _SkillVariables, _Skill] Spawn NEKY_Hunt_SetSkill;
 						_Group AllowFleeing 0;
@@ -212,20 +200,14 @@ if(_Waves == 0) exitWith { SystemChat "Waves Depleted - Exiting Script"};
 
 /*
 	Params ["_Side","_Number","_Leaders","_Units","_Pos"];
-
 	_Grp = CreateGroup _Side;
 	_Leader = _Grp CreateUnit [(selectRandom _Leaders), [0,0,0], [], 10, "NONE"];
 	_Leader SetRank "Sergeant";
 	_Pos = getPos _SpawnPos;
 	_Leader setPos _Pos;
-
 	For "_i" from 2 to _Number step 1 do
 	{
 		_Unit = _Grp createUnit [(SelectRandom _Units), _Leader, [], 10, "NONE"];
 		_Unit setRank "PRIVATE";
 	};
-
 */
-
-
-
