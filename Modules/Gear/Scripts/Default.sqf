@@ -59,7 +59,7 @@ switch (toLower(_role)) do {
 		[_rifleGL, _rifleGL_mag, _glHE] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
-		[[_microDAGR,1],[_pistol_mag,2],[_smokegrenadeY,4]] call _addToUniform;
+		[[_pistol_mag,2],[_smokegrenadeY,4]] call _addToUniform;
 		[[_smokegrenadeG,3],[_grenademini,2],[_grenade,2],[_rifleGL_mag_tr,4]] call _addToVest;
 		[[_flashBang,3],[_rifleGL_mag,4],[_glHE,7],[_glsmokeR,5]] call _addToBackpack;
 		_rangefinder call _addBino;
@@ -93,7 +93,7 @@ switch (toLower(_role)) do {
 		[_rifleGL, _rifleGL_mag, _glHE] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
-		[[_microDAGR,1],[_pistol_mag,2],[_smokegrenadeY,4]] call _addToUniform;
+		[[_pistol_mag,2],[_smokegrenadeY,4]] call _addToUniform;
 		[[_smokegrenadeG,3],[_grenademini,2],[_grenade,2],[_rifleGL_mag_tr,4]] call _addToVest;
 		[[_flashBang,3],[_rifleGL_mag,4],[_glHE,7],[_glSmokeR,5]] call _addToBackpack;
 		_rangefinder call _addBino;
@@ -101,7 +101,7 @@ switch (toLower(_role)) do {
 		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 			_nvg call _addNVG;
 			[[_mapFlashLight,1],[_IRStrobe,1]] call _addToUniform;
-			[[_handFlareG,3],[_handFlareR,3],[_glFlareR,5],[_glFlareG,5]] call _addToBackpack;
+			[[_handFlareG,2],[_handFlareR,2],[_glFlareR,3],[_glFlareG,3]] call _addToBackpack;
 		};
 	};
 
@@ -118,7 +118,7 @@ switch (toLower(_role)) do {
 		[_map, _gps, "", _compass, _watch, ""] call _addLinkedItems;
 		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 			_nvg call _addNVG;
-			[[_mapFlashLight,1],[_handFlareG,2],[_handFlareR,2]] call _addToUniform;
+			[[_mapFlashLight,1],[_handFlareG,1],[_handFlareR,1]] call _addToUniform;
 		};
 		if (_useMineDetector) then {
 			[["MineDetector",1]] call _addToBackpack;
@@ -140,7 +140,7 @@ switch (toLower(_role)) do {
 		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 			_nvg call _addNVG;
 			[[_mapFlashLight,1],[_IRStrobe,1]] call _addToUniform;
-			[[_handFlareG,5],[_handFlareR,5],[_glFlareR,8],[_glFlareG,8]] call _addToBackpack;
+			[[_handFlareG,2],[_handFlareR,2],[_glFlareR,4],[_glFlareG,4]] call _addToBackpack;
 		};
 		if (_LAT_ReUsable) then {
 			[[_LAT_mag,1],[_LAT_mag_HE,1]] call _addToBackpack;
@@ -179,7 +179,7 @@ switch (toLower(_role)) do {
 		[_map, _gps, "", _compass, _watch, ""] call _addLinkedItems;
 		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 			_nvg call _addNVG;
-			[[_mapFlashLight,1],[_handFlareG,2],[_handFlareR,2]] call _addToUniform;
+			[[_mapFlashLight,1],[_handFlareG,1],[_handFlareR,1]] call _addToUniform;
 		};
 	};
 
