@@ -58,13 +58,13 @@ _LMG_mag = "CUP_200Rnd_TE4_Red_Tracer_556x45_M249";
 _MMG = ["CUP_lmg_M240", _silencer, _pointer, _sight, _bipod];
 _MMG_mag = "CUP_100Rnd_TE4_LRT4_Red_Tracer_762x51_Belt_M";
 
-_LAT = ["CUP_launch_M136", _silencer, _pointer, _sight, _bipod];
-_LAT_mag = "";
-_LAT_ReUsable = false;
+_LAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "MRAWS_HEAT_F";
+_LAT_ReUsable = true;
 
-_MAT = ["CUP_launch_Mk153Mod0", _silencer, _pointer, "CUP_optic_SMAW_Scope", _bipod];
-_MAT_mag = "CUP_SMAW_HEDP_M";
-_MAT_mag_HE = "CUP_SMAW_HEAA_M";
+_MAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
+_MAT_mag = "MRAWS_HEAT_F";
+_MAT_mag_HE = "MRAWS_HE_F";
 
 _pistol = ["CUP_hgun_M9", _silencer, _pointer, _sight, _bipod];
 _pistol_mag = "CUP_15Rnd_9x19_M9";
