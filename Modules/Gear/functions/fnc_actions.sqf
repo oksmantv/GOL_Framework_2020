@@ -18,6 +18,14 @@ params [["_unit", objNull, [objNull]]];
 
 _unit addAction ["<t color='#ffff00'>Attachment Menu</t>", {["player", [], -100, ["_this call GW_Gear_Fnc_replaceAttachments","main"]] call cba_fnc_fleximenu_openMenuByDef},bullShit,8];
 
+// Adds ACE Arsenal for Attachments
+/*
+[_unit, (currentWeapon player) call GW_Gear_Fnc_getAttachments select 0] call ace_arsenal_fnc_initbox;
+[_unit, (currentWeapon player) call GW_Gear_Fnc_getAttachments select 1] call ace_arsenal_fnc_addVirtualItems;
+[_unit, (currentWeapon player) call GW_Gear_Fnc_getAttachments select 2] call ace_arsenal_fnc_addVirtualItems;
+[_unit, (currentWeapon player) call GW_Gear_Fnc_getAttachments select 3] call ace_arsenal_fnc_addVirtualItems;
+*/
+
 //	_unit addAction ["Remove Night gear", {
 _unit addAction ["<t color='#ff962c'>Remove Night gear</t>", {
 	player unassignItem "NVGoggles_OPFOR";

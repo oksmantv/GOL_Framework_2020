@@ -25,14 +25,14 @@ class ace_medical_enableOverdosing {
 	force = 1;
 };
 class ace_medical_bleedingCoefficient {
-	value = 5;
+	value = 1;
 	typeName = "SCALAR";
-	force = 1;
+	force = 0;
 };
 class ace_medical_painCoefficient {
-	value = 3;
+	value = 1;
 	typeName = "SCALAR";
-	force = 1;
+	force = 0;
 };
 class ace_medical_enableAirway {
 	value = 0;
@@ -153,7 +153,7 @@ class ace_medical_keepLocalSettingsSynced {
 	force = 1;
 };
 class ace_medical_healHitPointAfterAdvBandage {
-	value = 1;
+	value = 0;
 	typeName = "BOOL";
 	force = 1;
 };
@@ -203,5 +203,11 @@ class ace_medical_ai_enabledFor {
 class ace_medical_blood_enabledfor {
 	value = 2;
 	typeName = "SCALAR";
+	force = 1;
+};
+
+class ace_medical_treatment_advancedBandages {
+	value = 0;
+	typeName = "BOOL"
 	force = 1;
 };
