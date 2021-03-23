@@ -54,7 +54,7 @@ if (!GVARMAIN(mod_ACE3)) exitWith {false};
 		["ACE_Medical_enableOverdosing", true] call GW_Fnc_changeSetting;
 		["ACE_Medical_bleedingCoefficient", 1] call GW_Fnc_changeSetting;
 		["ACE_Medical_painCoefficient", 1] call GW_Fnc_changeSetting;
-		["ACE_Medical_playerDamageThreshold", 1.5] call GW_Fnc_changeSetting;
+		["ACE_Medical_playerDamageThreshold", 1.2] call GW_Fnc_changeSetting;
 		["ACE_Medical_AIDamageThreshold", 1] call GW_Fnc_changeSetting;
 	//	ACE_Medical_allowDeadBodyMovement = false;		// Does nothing
 	} else {

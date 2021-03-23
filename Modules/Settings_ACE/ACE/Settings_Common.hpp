@@ -109,6 +109,12 @@ class ace_cookoff_enable {
 	force = 1;
 };
 
+class ace_cookoff_enableAmmoCookoff {
+	value = 0;
+	typeName = "BOOL";
+	force = 1;
+};
+
 /*
 class ace_cookoff_enableAmmobox {
     value = 1;
