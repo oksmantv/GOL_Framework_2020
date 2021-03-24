@@ -80,12 +80,13 @@ class ace_cargo_enable {
 };
 
 // -------------------------------------------
-
+/* CLASS NO LONGER EXISTS!!!
 class ace_common_forceAllSettings {
 	value = 0;
 	typeName = "BOOL";
 	force = 1;
 };
+*/
 class ace_common_checkPBOsAction {
 	value = 0;
 	typeName = "SCALAR";

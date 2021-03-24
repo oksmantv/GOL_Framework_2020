@@ -74,12 +74,14 @@ if (GVARMAIN(mod_ACE3_Medical)) then {	//	ACE
 	_blood = "ACE_bloodIV";
 	_epi = "ACE_epinephrine";
 	_morph = "ACE_morphine";
+	_tourn = "ACE_tourniquet";
 	_IFAK = [[_bandage,3]];
 	if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {	// Advanced
 		_blood = "ACE_bloodIV";
 		_epi = "ACE_epinephrine";
 		_morph = "ACE_morphine";
 		_IFAK = [["ACE_elasticBandage",5],["ACE_tourniquet",1]];
+		_tourn = "ACE_tourniquet";
 		_FAKSmall = [
 			[_bandage, 10],
 			["ACE_elasticBandage", 20],
@@ -103,12 +105,14 @@ if (GVARMAIN(mod_ACE3_Medical)) then {	//	ACE
 	} else {
 		_FAKSmall = [
 			[_bandage,20],
-			[_morph,5]
+			[_morph,5],
+			[_tourn,4]
 		];
 		_FAKBig = [
 			[_bandage,20],
 			[_morph,5],
 			[_epi,5],
+			[_tourn,5],
 			[_blood,3]
 		];
 	};

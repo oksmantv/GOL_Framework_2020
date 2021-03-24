@@ -208,6 +208,12 @@ class ace_medical_blood_enabledfor {
 
 class ace_medical_treatment_advancedBandages {
 	value = 0;
-	typeName = "SCALAR"
+	typeName = "SCALAR";
+	force = 1;
+};
+
+class ace_medical_treatment_advancedDiagnose {
+	value = 0;
+	typeName = "BOOL";
 	force = 1;
 };

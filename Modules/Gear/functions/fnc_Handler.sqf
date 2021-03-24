@@ -259,8 +259,8 @@ if (_isMan) then {
 					[_unit, _mortarRangeCard, 10] call _fnc_AddObjectsCargo;
 				};
 				if (GVARMAIN(mod_TFAR)) then {
-					[_unit, "TF_pnr1000a", 10] call _fnc_AddObjectsCargo;
-					[_unit, "TF_anprc152", 10] call _fnc_AddObjectsCargo;
+					[_unit, "TFAR_pnr1000a", 10] call _fnc_AddObjectsCargo;
+					[_unit, "TFAR_anprc152", 10] call _fnc_AddObjectsCargo;
 				};
 				if (GVARMAIN(mod_ACRE)) then {
 					[_unit, "ACRE_PRC343", 10] call _fnc_AddObjectsCargo;
@@ -365,6 +365,8 @@ if (_isMan) then {
 				if (GVARMAIN(mod_ACE3)) then {
 					[_unit, _morph, 50] call _fnc_AddObjectsCargo;
 					[_unit, _epi, 50] call _fnc_AddObjectsCargo;
+					_tourn = "ACE_tourniquet";
+					[_unit, _tourn, 50] call _fnc_AddObjectsCargo;
 					[_unit, _blood, 50] call _fnc_AddObjectsCargo;
 					if ((EGVAR(Settings_ACE,medical_level) isEqualTo 2) || (ace_medical_level isEqualTo 2)) then {
 						[_unit, "ACE_elasticBandage", 100] call _fnc_AddObjectsCargo;

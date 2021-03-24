@@ -67,7 +67,7 @@ corpseManagerMode = 0;
 wreckManagerMode = 0;
 
 respawn = "BASE";
-respawndelay = 30;
+respawndelay = 15;
 respawnOnStart = 0;
 
 class Params {

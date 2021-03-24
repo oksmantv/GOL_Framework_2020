@@ -17,6 +17,18 @@ p		- Pilot
 
 switch (toLower(_role)) do {
 
+	case "sl": {
+		[_goggles,_helmet,_uniform,_vest,_backpackRadio] call _addEquipment;
+		[_rifleGL, _rifleGL_mag, _glHE] call _addPrimary;
+		[_pistol, _pistol_mag, ""] call _addHandGun;
+		_IFAK call _addToUniform;
+		[[_pistol_mag,2],[_smokegrenadeY,4]] call _addToUniform;
+		[[_smokegrenadeG,3],[_grenademini,2],[_grenade,2],[_rifleGL_mag_tr,4]] call _addToVest;
+		[[_flashBang,3],[_rifleGL_mag,4],[_glHE,7],[_glsmokeR,5]] call _addToBackpack;
+		_rangefinder call _addBino;
+		[_map, _gps, "", _compass, _watch, ""] call _addLinkedItems;
+	};
+
 	case "ftl": {
 		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
 		[_rifleGL, _rifleGL_mag_tr, _glHE] call _addPrimary;
