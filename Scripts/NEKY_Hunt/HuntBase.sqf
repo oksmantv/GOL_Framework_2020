@@ -60,7 +60,7 @@ Params
 	["_RefreshRate", 0, [0]]
 ];
 
-Private ["_Leaders","_Units","_Vehicle","_VehicleClass","_MaxCargoSeats","_Trigger","_MaxUnits"];
+Private ["_Group","_Leaders","_Units","_Vehicle","_VehicleClass","_MaxCargoSeats","_Trigger","_MaxUnits"];
 
 sleep 5;
 
@@ -71,7 +71,7 @@ _Settings Params ["_MinDistance","_UpdateFreqSettings","_SkillVariables","_Skill
 	_Trigger setTriggerActivation ["ANYPLAYER", "PRESENT", true];
 	_Trigger setTriggerArea [300, 300, 0, false];
 
-	_EyeCheck = createVehicle ["Sign_Sphere25cm_F", [getPos _SpawnPos select 0,getPos _SpawnPos select 1,(getPos _SpawnPos select 2) + 3], [], 0, "CAN_COLLIDE"];
+	_EyeCheck = createVehicle ["Land_ClutterCutter_small_F", [getPos _SpawnPos select 0,getPos _SpawnPos select 1,(getPos _SpawnPos select 2) + 3], [], 0, "CAN_COLLIDE"];
 	_EyeCheck hideObject true;
 	_EyeCheck enableSimulation false;
 
@@ -130,8 +130,8 @@ while {alive _Base && _Waves > 0} do
 
 			if(typeName _Soldiers == "STRING" || typeName _Soldiers == "ARRAY") then {
 
-				_AliveCurrentCount = NEKY_Hunt_CurrentCount select {alive _X};
-				_AliveNumber = count _AliveCurrentCount;
+				_AliveNumber  = count (NEKY_Hunt_CurrentCount select {alive _X});
+
 				if(NEKY_Hunt_MaxCount >= _AliveNumber) then {
 					_Waves = _Waves - 1;
 					if(typeName _Soldiers == "ARRAY") then {
@@ -145,23 +145,22 @@ while {alive _Base && _Waves > 0} do
 
 					_Vehicle setDir getDir _SpawnPos;
 					createVehicleCrew _Vehicle;
-					sleep 1;
+					sleep 3;
 					{NEKY_Hunt_CurrentCount pushBackUnique _X} foreach crew _Vehicle;
+					_Group = group (driver _Vehicle);
 				};
 
 				sleep 2;
+ 				// Count (TypeOf _Vehicle call BIS_fnc_AllTurrets) == 0
+				if((isNull gunner _Vehicle) || (_Vehicle emptyPositions "gunner" == 0)) then {
 
-				if(Count (TypeOf _Vehicle call BIS_fnc_AllTurrets) == 0) then {
-
-					_Group = group (driver _Vehicle);
-					NEKY_Hunt_CurrentCount pushBackUnique (driver _Vehicle);
 					_CargoSeats = ([TypeOf _Vehicle,true] call BIS_fnc_crewCount) - (["TypeOf _Vehicle",false] call BIS_fnc_crewCount);
 					if(_CargoSeats > _MaxCargoSeats) then { _CargoSeats = _MaxCargoSeats };
 
 					_AliveCurrentCount = NEKY_Hunt_CurrentCount select {alive _X};
 					_AliveNumber = count _AliveCurrentCount;
 
-					if((_AliveNumber + (_CargoSeats + 1)) <= NEKY_Hunt_MaxCount) then {
+					if((_AliveNumber + (_CargoSeats + 1)) <= NEKY_Hunt_MaxCount && _Vehicle emptyPositions "cargo" != 0) then {
 
 							 ///Create Leader
 							_Unit = _Group CreateUnit [(_Units call BIS_FNC_selectRandom), [0,0,50], [], 0, "NONE"];
@@ -187,16 +186,19 @@ while {alive _Base && _Waves > 0} do
 
 				};
 
-				///SystemChat "Vehicle Spawned...";
-
-				sleep 1;
-				[Group (Driver _Vehicle), nil, _HuntZone, 0, 30, 0, {}] Spawn NEKY_Hunt_Run;
+				if(count units _Group > 1) then {
+					[_Group, nil, _HuntZone, 0, 30, 0, {}] Spawn NEKY_Hunt_Run;
+				} else {
+					deleteVehicle driver _Vehicle;
+					deleteVehicle _vehicle;
+					systemChat "Only Driver Active - Removing Vehicle..";
+				};
 
 			};
 
-			_AliveCurrentCount = NEKY_Hunt_CurrentCount select {alive _X};
-			_AliveNumber = count _AliveCurrentCount;
-			SystemChat format ["Spawned -  Current Count %1 - Max Count: %2",_AliveNumber,NEKY_Hunt_MaxCount];
+			sleep 5;
+			_AliveNumber  = count (NEKY_Hunt_CurrentCount select {alive _X});
+			SystemChat format ["%1 Spawned %2 - Current Count %3 - Max Count: %4",_Base,count units _Group,_AliveNumber,NEKY_Hunt_MaxCount];
 			sleep _RespawnDelay;
 		};
 	}
