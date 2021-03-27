@@ -207,7 +207,7 @@ if (_isMan) then {
 		switch (_class) do {
 			case "gearbox": {
 				[_unit] remoteExecCall [QFUNC(actions), 0, true];	// Enables gear actions for all players
-
+				[_unit, "Toolkit", 10] call _fnc_AddObjectsCargo;
 				[_unit, _glsmokeY, 20] call _fnc_AddObjectsCargo;
 				[_unit, _glflareW, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
@@ -381,6 +381,7 @@ if (_isMan) then {
 			};
 
 			case "car": {
+
 				[_unit, _bandage, 5] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 6] call _fnc_AddObjectsCargo;
 
@@ -396,7 +397,8 @@ if (_isMan) then {
 					[_unit, (_LAT select 0), 4] call _fnc_AddObjectsCargo;
 				};
 				if (GVARMAIN(mod_ACE3)) then {
-					[_unit, 3, "ACE_Wheel", true] call ace_repair_fnc_addSpareParts;
+					[_unit, 15] call ace_cargo_fnc_setSpace;
+					[_unit, 8, "ACE_Wheel", true] call ace_repair_fnc_addSpareParts;
 				};
 			};
 
@@ -407,7 +409,8 @@ if (_isMan) then {
 				[_unit, _pistol_mag, 3] call _fnc_AddObjectsCargo;
 				[_unit, _rifle_mag, 4] call _fnc_AddObjectsCargo;
 				if (GVARMAIN(mod_ACE3)) then {
-					[_unit, 3, "ACE_Track", true] call ace_repair_fnc_addSpareParts;
+					[_unit, 15] call ace_cargo_fnc_setSpace;
+					[_unit, 6, "ACE_Track", true] call ace_repair_fnc_addSpareParts;
 				};
 			};
 

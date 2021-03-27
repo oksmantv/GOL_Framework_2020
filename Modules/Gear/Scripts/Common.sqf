@@ -147,7 +147,7 @@ if (GVARMAIN(mod_ACE3)) then {
 	_rangefinder = "ACE_Vector";
 	_microDAGR = "ACE_DAGR";
 	_rangecard = "ACE_RangeCard";
-	_mortarRangeCard = "ACE_RangeTable_82mm";
+	_mortarRangeCard = "ACE_artilleryTable";
 	_Earplugs = "ACE_EarPlugs";
 	_ATrag = "ACE_ATragMX";
 	_Kestrel = "ACE_Kestrel4500";

@@ -199,12 +199,13 @@ switch (toLower(_role)) do {
 	};
 
 	case "crew": {
-		[_goggles,_helmet,_uniform,_vest] call _addEquipment;
-		[_rifleC, _rifleC_mag_tr, ""] call _addPrimary;
+		[_goggles,_helmet,_uniform,_vest,_backpack] call _addEquipment;
+		[_rifle, _rifle_mag, ""] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
 		[[_pistol_mag,2],[_smokegrenadeY,2]] call _addToUniform;
-		[[_toolkit,1],[_rifleC_mag_tr,4],[_smokegrenadeP,3],[_grenademini,1]] call _addToVest;
+		[[_rifle_mag,4],[_smokegrenadeP,3],[_grenademini,1]] call _addToVest;
+		[[_toolkit,1]] call _addToBackPack;
 		[_map, _gps, "", _compass, _watch, ""] call _addLinkedItems;
 		if ((call EFUNC(Common,isNight)) && _allowedNightStuff) then {
 			_nvg call _addNVG;
