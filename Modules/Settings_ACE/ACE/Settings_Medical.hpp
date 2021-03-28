@@ -217,3 +217,9 @@ class ace_medical_treatment_advancedDiagnose {
 	typeName = "BOOL";
 	force = 1;
 };
+
+class ace_medical_gui_enableActions {
+	value = 0;
+	typeName = "SCALAR";
+	force = 0;
+};

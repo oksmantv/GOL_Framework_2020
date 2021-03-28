@@ -56,6 +56,8 @@ if (!GVARMAIN(mod_ACE3)) exitWith {false};
 		["ACE_Medical_painCoefficient", 1] call GW_Fnc_changeSetting;
 		["ACE_Medical_playerDamageThreshold", 1.2] call GW_Fnc_changeSetting;
 		["ACE_Medical_AIDamageThreshold", 1] call GW_Fnc_changeSetting;
+		["ace_medical_treatment_advancedDiagnose", 0] call GW_Fnc_changeSetting;
+		["ace_medical_gui_enableActions", 0] call GW_Fnc_changeSetting;
 	//	ACE_Medical_allowDeadBodyMovement = false;		// Does nothing
 	} else {
 		["ACE_Medical_level", 2] call GW_Fnc_changeSetting;
