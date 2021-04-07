@@ -7,6 +7,7 @@ if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC ru
 
 
 // Functions
+GW_Ambient_AAA = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\GW_Ambient_AAA.sqf";
 OKS_Ambient_Settings = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\Settings.sqf";
 OKS_ArtyFire = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_ArtyFire.sqf";
 OKS_ScudLaunch = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\OKS_ScudLaunch.sqf";

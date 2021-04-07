@@ -62,10 +62,10 @@ While { Alive _Player && ({ (Alive _x) && !(Captive _x) } count _AI) != 0 && (Ve
 	// Reveal prey and its group.
 	if ((_Leader distance2D _Player) < 300) then
 	{
-		if ((_Grp knowsAbout _Player) < 2.0) then
+		if ((_Grp knowsAbout _Player) < 1.5) then
 		{
 			{
-				_Grp Reveal [_x, 2.0];
+				_Grp Reveal [_x, 1.5];
 			} forEach (Units _PlayerGrp);
 		};
 	} else {

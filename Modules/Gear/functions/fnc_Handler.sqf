@@ -212,6 +212,7 @@ if (_isMan) then {
 				[_unit, _glflareW, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeY, 20] call _fnc_AddObjectsCargo;
 				[_unit, _smokegrenadeG, 5] call _fnc_AddObjectsCargo;
+				[_unit, _toolKit, 10] call _fnc_AddObjectsCargo;
 				[_unit, "B_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				[_unit, "O_UavTerminal", 10] call _fnc_AddObjectsCargo;
 				[_unit, "I_UavTerminal", 10] call _fnc_AddObjectsCargo;
