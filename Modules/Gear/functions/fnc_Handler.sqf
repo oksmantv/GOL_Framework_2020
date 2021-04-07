@@ -1,5 +1,5 @@
 /*
-	Author: GuzzenVonLidl
+	Author: GuzzenVonLidl, Blu.
 	Sets the correct gear for soldier, cargo for vehicles and ammo boxes
 
 	Usage:
@@ -17,13 +17,15 @@
 	pl		- Platoon leader			(Player)
 	fac		- Forward Air Controller	(Player)
 	sl		- Squad Leader				(Player)
+	sm		- Squad Medic
 	ftl		- Fire team leader
-	r		- Rifleman
-	g		- Grenadier
+	r			- Rifleman
+	g			- Grenadier
 	ag		- Asst. Gunner
 	ar		- Automatic Rifleman
 	crew	- Crew memeber
-	p		- Pilot
+	p			- Pilot
+	jetp	- Jet Pilot
 	mat		- Rifleman AT Medium
 	amat	- Asst. Rifleman AT
 	mmg		- Medium Machine Gunner
@@ -90,8 +92,8 @@ if (_isMan) then {
 		_unit setUnitTrait ["engineer", true];
 		_unit setUnitTrait ["explosiveSpecialist", true];
 		if (GVARMAIN(mod_ACE3)) then {
-			_unit setVariable ["ACE_Medical_MedicClass", 1];	// IsMedic
-			_unit setVariable ["ACE_IsEngineer", 1];			// isEngineer
+			_unit setVariable ["ACE_Medical_MedicClass", 1];
+			_unit setVariable ["ACE_IsEngineer", 1];
 			_unit setVariable ["ACE_GForceCoef", 0.5];			// IsPilot
 		};
 	};

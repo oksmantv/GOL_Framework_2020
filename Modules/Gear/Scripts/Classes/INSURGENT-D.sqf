@@ -7,7 +7,7 @@ _vest = "V_HarnessO_gry";
 _backpack = "M11_Kitbag";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tfar_mr3000_rhs";
+	_backpackRadio = "unv_tan_big_rt1523g";
 };
 
 if ((random 1) > 0.90) then {
@@ -29,7 +29,6 @@ if (_role isEqualTo "uav") then {
 if (_role isEqualTo "jetp") then {
 	_goggles = "G_Aviator";
 	_helmet = "H_PilotHelmetFighter_B";
-	_uniform = "U_B_PilotCoveralls";
 	_vest = "V_Rangemaster_belt";
 	_backpack = "B_Parachute";
 };

@@ -56,6 +56,7 @@ _MMG = ["UK3CB_BAF_L7A2", _silencer, _pointer, _sight, _bipod];
 _MMG_mag = "UK3CB_BAF_762_100Rnd_T";
 
 _LAT = ["rhs_weap_M136_hedp", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "";
 _LAT_ReUsable = false;
 
 _MAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
@@ -64,11 +65,11 @@ _MAT_mag = "MRAWS_HEAT_F";
 _pistol = ["rhsusf_weap_glock17g4", _silencer, _pointer, _sight, _bipod];
 _pistol_mag = "rhsusf_mag_17Rnd_9x19_JHP";
 
-_silencer = "uk3cb_baf_silcencer_l115a3";
+_silencer = "uk3cb_baf_silencer_l115a3";
 _pointer = "";
 _sight = "optic_LRPS";
-_bipod = "uk3cb_underbarrel_acc_bipod";
+_bipod = "";
 
-_rifleMarksman = ["UK3CB_BAF_L129A1", _silencer, _pointer, _sight, _bipod];
-_rifleMarksman_mag = "UK3CB_BAF_762_L42A1_20Rnd";
-_rifleMarksman_mag_tr = "UK3CB_BAF_762_L42A1_20Rnd_T";
+_rifleMarksman = ["UK3CB_BAF_L115A3", _silencer, _pointer, _sight, _bipod];
+_rifleMarksman_mag = "UK3CB_BAF_338_5Rnd";
+_rifleMarksman_mag_tr = "UK3CB_BAF_338_5Rnd_Tracer";

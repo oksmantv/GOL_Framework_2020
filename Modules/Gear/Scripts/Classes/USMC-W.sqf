@@ -12,7 +12,7 @@ _uniform = "rhs_uniform_FROG01_wd";
 _vest = "rhsusf_spc_light";
 _backpack = "rhsusf_falconii_coy_gr";
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tfar_mr3000_multicam";
+	_backpackRadio = "unv_MARPAT_WD_big_rt1523g";
 };
 
 if (_role in ["ftl","sl"]) then {
@@ -68,6 +68,7 @@ _MMG = ["rhs_weap_m240B", _silencer, _pointer, _sight, _bipod];
 _MMG_mag = "rhsusf_100Rnd_762x51_m62_tracer";
 
 _LAT = ["rhs_weap_M136_hedp", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "";
 _LAT_ReUsable = false;
 
 _MAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
@@ -75,13 +76,13 @@ _MAT_mag = "MRAWS_HEAT_F";
 _MAT_mag_HE = "MRAWS_HE_F";
 
 _pistol = ["rhsusf_weap_m9", _silencer, _pointer, _sight, _bipod];
-_pistol_mag = "rhsusf_mah_15Rnd_9x19_FMJ";
+_pistol_mag = "rhsusf_mag_15Rnd_9x19_FMJ";
 
-_silencer = "muzzle_snds_B";
+_silencer = "rhsusf_acc_m2010s_wd";
 _pointer = "";
 _sight = "optic_LRPS";
-_bipod = "rhsusf_acc_harris_swivel";
+_bipod = "rhsusf_acc_harris_bipod";
 
-_rifleMarksman = ["rhs_weap_m14_ris_d", _silencer, _pointer, _sight, _bipod];
-_rifleMarksman_mag = "rhsusf_20Rnd_762x51_m993_Mag";
-_rifleMarksman_mag_tr = "rhsusf_20Rnd_762x51_m62_Mag";
+_rifleMarksman = ["rhs_weap_XM2010_wd", _silencer, _pointer, _sight, _bipod];
+_rifleMarksman_mag = "rhsusf_5Rnd_300winmag_xm2010";
+_rifleMarksman_mag_tr = "";

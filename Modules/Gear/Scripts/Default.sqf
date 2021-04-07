@@ -280,7 +280,7 @@ switch (toLower(_role)) do {
 		[_rifleMarksman, _rifleMarksman_mag, ""] call _addPrimary;
 		[_pistol, _pistol_mag, ""] call _addHandGun;
 		_IFAK call _addToUniform;
-		[[_pistol_mag,2],[_rangecard,1],[_microDAGR,1],[_ATrag,1],[_Kestrel,1]] call _addToUniform;
+		[[_pistol_mag,2],[_rangecard,1],[_microDAGR,1],["ACE_ATragMX",1],["ACE_Kestrel4500",1]] call _addToUniform;
 		[[_rifleMarksman_mag,3],[_grenademini,2],[_smokegrenadeY,6],[_smokegrenadeG,6],[_smokegrenadeB,2],[_smokegrenadeP,2]] call _addToVest;
 		[[_rifleMarksman_mag_tr,2],[_smokegrenadeG,5]] call _addToBackpack;
 		_rangefinder call _addBino;
