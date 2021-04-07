@@ -27,7 +27,6 @@ GVAR(StaminaCoef) = 0.5;
 		[
 			"NATO-D",
 			"NATO-W",
-			"BAF-D",
 			"BAF-W",
 			"USMC-D",
 			"USMC-W",
@@ -38,8 +37,7 @@ GVAR(StaminaCoef) = 0.5;
 		[
 			"NATO-Desert",
 			"NATO-Woodland",
-			"BAF-Desert",
-			"BAF-Woodland",
+			"British Armed Forces",
 			"USMC-Desert",
 			"USMC-Woodland",
 			"INSURGENT-Desert",
@@ -60,7 +58,6 @@ GVAR(StaminaCoef) = 0.5;
 			"CSAT-W",
 			"CSAT-U",
 			"RUSSIAN-W",
-			"TAKIARMY-D",
 			"INSURGENT-D",
 			"INSURGENT-W",
 			"CUSTOM-E"
@@ -70,7 +67,6 @@ GVAR(StaminaCoef) = 0.5;
 			"CSAT-Woodland",
 			"CSAT-Urban",
 			"Russian-Woodland",
-			"Takistani Army-Desert",
 			"INSURGENT-Desert",
 			"INSURGENT-Woodland",
 			"CUSTOM-East"

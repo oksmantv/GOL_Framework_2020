@@ -7,7 +7,7 @@ _vest = "V_TacVest_oli";
 _backpack = "B_FieldPack_khk";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tf_anprc155";
+	_backpackRadio = "tfar_anprc155";
 };
 
 if (_role in ["ag","ammg"]) then {
@@ -39,38 +39,29 @@ _pointer = "";
 _sight = "";
 _bipod = "";
 
-_rifle = ["arifle_AKM_F", _silencer, _pointer, _sight, _bipod];
-_rifleC = ["arifle_AKS_F", _silencer, _pointer, _sight, _bipod];
-_rifleGL = ["arifle_AK12_GL_F", _silencer, _pointer, _sight, _bipod];
-_rifle_mag = "30Rnd_762x39_Mag_F";
-_rifle_mag_tr = "30Rnd_762x39_Mag_Tracer_F";
-_rifleC_mag = "30Rnd_545x39_Mag_F";
-_rifleC_mag_tr = "30Rnd_545x39_Mag_Tracer_F";
+_rifle = ["hlc_rifle_akm", _silencer, _pointer, _sight, _bipod];
+_rifleC = ["rhs_weap_akms", _silencer, _pointer, _sight, _bipod];
+_rifleGL = ["hlc_rifle_akmgl", _silencer, _pointer, _sight, _bipod];
+_rifle_mag = "hlc_30Rnd_762x39_b_ak";
+_rifle_mag_tr = "hlc_30Rnd_762x39_m_ak";
+_rifleC_mag = "hlc_30Rnd_762x39_b_ak";
+_rifleC_mag_tr = "hlc_30Rnd_762x39_m_ak";
 
-_LMG = ["LMG_03_F", _silencer, _pointer, _sight, _bipod];
-_LMG_mag = "200Rnd_556x45_Box_Red_F";
-_LMG_mag_tr = "200Rnd_556x45_Box_Tracer_Red_F";
+_LMG = ["hlc_rifle_RPK12", _silencer, _pointer, _sight, _bipod];
+_LMG_mag = "hlc_60Rnd_545x39_b_rpk";
 
-_MMG = ["LMG_Mk200_F", _silencer, _pointer, _sight, _bipod];
-_MMG_mag = "200Rnd_65x39_cased_Box";
-_MMG_mag_tr = "200Rnd_65x39_cased_Box_Tracer";
-
-_LAT = ["launch_MRAWS_green_rail_F", _silencer, _pointer, _sight, _bipod];
-_LAT_mag = "MRAWS_HEAT_F";
+_LAT = ["launch_RPG7_F", _silencer, _pointer, _sight, _bipod];
+_LAT_mag = "RPG7_F";
 _LAT_ReUsable = true;
 
-_MAT = ["launch_RPG32_F", _silencer, _pointer, _sight, _bipod];
-_MAT_mag = "RPG32_F";
-_MAT_mag_HE = "RPG32_HE_F";
-
-_pistol = ["hgun_Pistol_01_F", _silencer, _pointer, "optic_MRD", _bipod];
+_pistol = ["hgun_Pistol_01_F", _silencer, _pointer, _sight, _bipod];
 _pistol_mag = "10Rnd_9x21_Mag";
 
 _silencer = "muzzle_snds_B";
-_pointer = "acc_pointer_IR";
+_pointer = "";
 _sight = "optic_LRPS";
-_bipod = "bipod_01_F_blk";
+_bipod = "bipod_03_F_oli";
 
-_rifleMarksman = ["srifle_DMR_03_F", _silencer, _pointer, _sight, _bipod];
+_rifleMarksman = ["srifle_DMR_06_hunter_F", _silencer, _pointer, _sight, _bipod];
 _rifleMarksman_mag = "20Rnd_762x51_Mag";
 _rifleMarksman_mag_tr = "20Rnd_762x51_Mag";

@@ -20,20 +20,15 @@ _vest = "rhs_6b43";
 _backpack = "rhs_assault_umbts";
 _backpackRadio = _backpack;
 if (GVARMAIN(mod_TFAR)) then {
-	_backpackRadio = "tf_mr3000_rhs";
+	_backpackRadio = "tfar_mr3000_rhs";
 };
 
 if (_role in ["ag","ammg"]) then {
 	_backpack = "B_Carryall_green_F";
 };
 
-if (_role isEqualTo "crew") then {
-	_helmet = "CUP_H_RUS_TSH_4_Brown";
-	_vest = "CUP_V_RUS_6B3_3";
-};
 if (_role isEqualTo "p") then {
-	_helmet = "CUP_H_RUS_ZSH_Shield_Up";
-	_uniform = "CUP_U_O_RUS_EMR_1_VDV";
+	_helmet = "rhs_altyn_novisor_ess_bala";
 };
 if (_role isEqualTo "uav") then {
 	_backpack = "O_UAV_01_backpack_F";
@@ -76,12 +71,10 @@ _pistol = ["rhs_weap_pya", _silencer, _pointer, _sight, _bipod];
 _pistol_mag = "rhs_mag_9x19_17";
 
 _silencer = "";
-_pointer = "CUP_SVD_camo_g";
-_sight = "CUP_optic_PSO_3";
+_pointer = "";
+_sight = "rhs_acc_pso1m21";
 _bipod = "";
 
-_rifleMarksman = ["CUP_srifle_SVD", _silencer, _pointer, _sight, _bipod];
-_rifleMarksman_mag = "CUP_10Rnd_762x54_SVD_M";
-_rifleMarksman_mag_tr = "CUP_10Rnd_762x54_SVD_M";
-
-
+_rifleMarksman = ["rhs_weap_svdp_wd", _silencer, _pointer, _sight, _bipod];
+_rifleMarksman_mag = "rhs_10Rnd_762x54mmR_7N1";
+_rifleMarksman_mag_tr = "rhs_10Rnd_762x54mmR_7N14";

@@ -3,9 +3,6 @@ switch (_side) do {
 	case "AAF-W": {
 		#include "Classes\AAF-W.sqf"
 	};
-	case "BAF-D": {
-		#include "Classes\BAF-D.sqf"
-	};
 	case "BAF-W": {
 		#include "Classes\BAF-W.sqf"
 	};
@@ -53,9 +50,6 @@ switch (_side) do {
 	};
 	case "RUSSIAN-W": {
 		#include "Classes\RUSSIAN-W.sqf"
-	};
-	case "TAKIARMY-D": {
-		#include "Classes\TAKIARMY-D.sqf"
 	};
 	case "USMC-D": {
 		#include "Classes\USMC-D.sqf"
