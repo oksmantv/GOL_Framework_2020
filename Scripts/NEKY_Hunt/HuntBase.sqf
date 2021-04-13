@@ -26,7 +26,7 @@
 		You need two objects, you need a base object and a spawn object. Place down a destructible object and name it 'Object_1'
 		(When this object is destroyed, the "base" is destroyed thus it will not spawn more units)
 
-		Next create a spawn object and name it 'Spawn_1', this could be any object but I suggest using a tiny object such as 'Box of matches'. This is the object the units/vehicle will use to spawn on top of.
+		Next create a spawn object and name it 'Spawn_1', this could be any object but I suggest using a tiny object such as 'Grass Cutter (Small)'. This is the object the units/vehicle will use to spawn on top of.
 		(You can also use a invisible helipad but this will make AI helicopters land on these spawns in some occasions, so not recommended.)
 
 		You now need a Trigger, create a trigger and name it Trigger_1. Set the activation to "Any Players" and set it to "Repeatable". All this is chosen in the trigger properties (Double-click the trigger).
@@ -60,7 +60,7 @@ Params
 	["_RefreshRate", 0, [0]]
 ];
 
-Private ["_Group","_Leaders","_Units","_Vehicle","_VehicleClass","_MaxCargoSeats","_Trigger","_MaxUnits","_KnowsAboutValue"];
+Private ["_Group","_Leaders","_Units","_Vehicle","_VehicleClass","_MaxCargoSeats","_Trigger","_MaxUnits","_KnowsAboutValue","_DetectDelay"];
 
 sleep 5;
 
@@ -84,9 +84,9 @@ while {alive _Base && _Waves > 0} do
 	if ((dayTime > 04.30) and (dayTime < 19.30)) then {_KnowsAboutValue = 3.9} else {_KnowsAboutValue = 3.1};
 
 	if( {(_Side knowsAbout _X > _KnowsAboutValue || _Side knowsAbout vehicle _X > _KnowsAboutValue) && isTouchingGround (vehicle _X) && (isPlayer _X)} count list _HuntZone > 0) then {
-
-		SystemChat format["Check 1: Players detected in %1",_HuntZone];
-		sleep 120 + (Random 60);
+		_DetectDelay = round(_RefreshRate + (Random _RefreshRate));
+		SystemChat format["Players detected in %1 - Delay %2 seconds",_HuntZone,_DetectDelay];
+		sleep _DetectDelay;
 
 		SystemChat str [({isTouchingGround (vehicle _X) && (isPlayer _X) && [objNull, "VIEW"] checkVisibility [eyePos _X, getPosASL _EyeCheck] >= 0.6} count AllPlayers < 1),({isTouchingGround (vehicle _X) && (isPlayer _X)} count list _Trigger < 1)];
 
@@ -96,7 +96,7 @@ while {alive _Base && _Waves > 0} do
 		else
 		{
 			if( {(_Side knowsAbout _X > _KnowsAboutValue || _Side knowsAbout vehicle _X > _KnowsAboutValue) && isTouchingGround (vehicle _X) && (isPlayer _X)} count list _HuntZone > 0) then {
-				SystemChat format["Check 2: Players detected in %1",_HuntZone];
+				SystemChat format["Players confirmed in %1",_HuntZone];
 				if(typeName _Soldiers == "SCALAR") then
 				{
 					_Waves = _Waves - 1;
