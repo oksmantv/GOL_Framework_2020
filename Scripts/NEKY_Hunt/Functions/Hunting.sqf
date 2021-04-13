@@ -50,9 +50,13 @@ While { Alive _Player && ({ (Alive _x) && !(Captive _x) } count _AI) != 0 && (Ve
 		_Leader = Leader _Grp;
 		_RelPos = _Player getPos [150, _Player getDir _Leader];
 		_WP1 SetWaypointPosition [_RelPos,75];
-		_WP2 SetWaypointPosition [_Player,75];
-
-		_WPs = [_WP1,_WP2];
+		if(isNull objectParent(Leader _Grp)) then {
+			_WP2 SetWaypointPosition [_Player,75];
+			_WPs = [_WP1,_WP2];
+		} else
+		{
+			_WPs = [_WP1];
+		};
 		_WPs Apply {[(WaypointPosition _x) distance2D _Leader]};
 		_WPs sort True;
 		_Grp setCurrentWaypoint (_WPs select 0);
