@@ -134,6 +134,8 @@ if (_isSide) then
 };
 
 
+if(isNil "_Grp") exitWith { SystemChat "Run.sqf _Grp is null.. exiting" };
+
 // Start hunting
 [_Grp,_Player,_Zone,_UpdateFreq,_Distance,_Number,_Code,_ForceRespawnMultiplier,_Repeat] Spawn NEKY_Hunt_Hunting;
 
