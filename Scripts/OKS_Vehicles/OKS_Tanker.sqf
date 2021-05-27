@@ -3,7 +3,7 @@
 private ["_condition","_code","_side","_unit","_crew"];
 
 if (hasInterface) then {
-    _condition = {player in [wpl,epl,ipl,w1a,w1a1,w1b1,w1c1,e1a,e1a1,e1b1,e1c1,i1a,i1a1,i1b1,i1c1] && ((ObjectParent player) isKindof "Tank" || (ObjectParent player) isKindof "TrackedAPC" || (ObjectParent player) isKindof "WheeledAPC")}; //<only works MP
+    _condition = {player in [wpl,epl,ipl,w1a,w1a1,w1b1,w1c1,e1a,e1a1,e1b1,e1c1,i1a,i1a1,i1b1,i1c1] && ((ObjectParent player) isKindof "Tank" || (ObjectParent player) isKindof "Wheeled_APC_F")}; //<only works MP
 
 	    _side = side player;
 		switch (_side) do {

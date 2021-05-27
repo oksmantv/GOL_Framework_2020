@@ -3,8 +3,7 @@
 //	This initializes all the functions for OKS Ambience.
 //
 //	Made by Oksman
-if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC runs this script
-
+if(HasInterface && !isServer) then {false};
 
 // Functions
 GW_Ambient_AAA = compile preprocessFileLineNumbers "Scripts\OKS_Ambience\GW_Ambient_AAA.sqf";

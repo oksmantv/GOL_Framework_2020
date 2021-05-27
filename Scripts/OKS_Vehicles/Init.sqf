@@ -8,4 +8,6 @@ if (hasInterface && !isServer) exitWith {false};	// Ensures only server or HC ru
 // Functions
 OKS_Tanker = compile preprocessFileLineNumbers "Scripts\OKS_Vehicles\OKS_Tanker.sqf";
 OKS_CreateCrew = compile preprocessFileLineNumbers "Scripts\OKS_Vehicles\OKS_CreateCrew.sqf";
+OKS_DeleteCrew = compile preprocessFileLineNumbers "Scripts\OKS_Vehicles\OKS_DeleteCrew.sqf";
+OKS_Mechanized = compile preprocessFileLineNumbers "Scripts\OKS_Vehicles\OKS_Mechanized.sqf";
 
